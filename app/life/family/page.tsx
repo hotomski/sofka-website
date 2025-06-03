@@ -67,10 +67,10 @@ export default function FamilyPage() {
             My dad was a university professor and mathematician who taught artificial intelligence, mathematical logic, and principles of programming—long before those fields were fashionable. He shaped not only generations of students, but also us—his four daughters. Yes, all girls. Yes, all engineers. I’m the youngest of the bunch, and we’re now scattered across three continents and four countries: Novi Sad, Boston, Sydney, and Zurich.
           </p>
           <p className="text-lg leading-relaxed">
-            My mum, on the other hand, was a primary school teacher with a heart full of love for children—and that heart hasn't changed a bit. While my dad taught us to think critically, she taught us to care deeply. Together, they created a home where curiosity and kindness were part of everyday life.
+            My mum, on the other hand, was a primary school teacher with a heart full of love for children—and that heart hasn&apos;t changed a bit. While my dad taught us to think critically, she taught us to care deeply. Together, they created a home where curiosity and kindness were part of everyday life.
           </p>
           <p className="text-lg leading-relaxed">
-            In 2011, life reminded us how fragile it can be. We lost my dad to a lung condition. That same year, my mum was diagnosed with breast cancer. She went through surgery, chemo, and radiation—and survived. She's a fighter, and one of my greatest inspirations to this day.
+            In 2011, life reminded us how fragile it can be. We lost my dad to a lung condition. That same year, my mum was diagnosed with breast cancer. She went through surgery, chemo, and radiation—and survived. She&apos;s a fighter, and one of my greatest inspirations to this day.
           </p>
 
           <div className="relative my-8">

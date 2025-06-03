@@ -17,16 +17,16 @@ export default function GardeningPage() {
 
         {/* Description */}
         <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          Since March 2025, I’ve been on garden leave — and I decided to take it quite literally! I rolled up my sleeves, grabbed some seeds, and started my first real gardening adventure.
+          Since March 2025, I&apos;ve been on garden leave — and I decided to take it quite literally! I rolled up my sleeves, grabbed some seeds, and started my first real gardening adventure.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          With a mix of excitement and beginner’s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
+          With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          So far, everything’s sprouting along beautifully… except the zucchini, which clearly had other plans. Sorry, zucchini! But the radishes and spring onions have already made it to our plates, proudly homegrown and surprisingly tasty.
+          So far, everything&apos;s sprouting along beautifully… except the zucchini, which clearly had other plans. Sorry, zucchini! But the radishes and spring onions have already made it to our plates, proudly homegrown and surprisingly tasty.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          The project is still a work in progress, and I’ll be sharing a full timeline and all the little steps I took to make my garden grow. Stay tuned — green thumbs crossed!
+          The project is still a work in progress, and I&apos;ll be sharing a full timeline and all the little steps I took to make my garden grow. Stay tuned — green thumbs crossed!
         </p>
 
         {/* Photos Section */}

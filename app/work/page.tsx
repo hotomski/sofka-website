@@ -22,7 +22,7 @@ export default function WorkPage() {
           <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
             <h2 className="text-xl md:text-2xl font-bold mb-4">Work in industry</h2>
             <p className="text-sm md:text-lg leading-relaxed">
-              From global enterprises like Siemens and Schneider Electric to the fast-paced world of a medium-sized startup like ASMIQ, and then back to Siemens again — my career has been a journey across diverse tech ecosystems. Along the way, I’ve built up a unique blend of deep technical know-how, product strategy chops, and cross-functional leadership skills. These roles didn’t just shape the professional I am today — they taught me how to speak both “engineer” and “executive,” drive innovation, and keep my sense of humor intact during deadline week. If you're curious about what I’ve been up to in the serious grown-up world of industry, check out my CV <Link href="/cv" className="custom-link hover:opacity-70 transition">here</Link>.
+              From global enterprises like Siemens and Schneider Electric to the fast-paced world of a medium-sized startup like ASMIQ, and then back to Siemens again — my career has been a journey across diverse tech ecosystems. Along the way, I’ve built up a unique blend of deep technical know-how, product strategy chops, and cross-functional leadership skills. These roles didn’t just shape the professional I am today — they taught me how to speak both “engineer” and “executive,” drive innovation, and keep my sense of humor intact during deadline week. If you&apos;re curious about what I’ve been up to in the serious grown-up world of industry, check out my CV <Link href="/cv" className="custom-link hover:opacity-70 transition">here</Link>.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function WorkPage() {
               During my PhD, I published four conference papers, one workshop paper, and one journal article. My research was featured at top international venues, including the Requirements Engineering Conference (RE) and the International Conference on Software Engineering (ICSE).
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
-              After completing my PhD, I continued publishing and contributed one journal paper, two additional conference papers, and an article for IEEE Software magazine. In this article I share how I found my way into requirements engineering, the challenge of siloed processes, and a collaborative approach with UX designers that’s helped me define clearer, more user-friendly requirements.
+              After completing my PhD, I continued publishing and contributed one journal paper, two additional conference papers, and an article for IEEE Software magazine. In this article I share how I found my way into requirements engineering, the challenge of siloed processes, and a collaborative approach with UX designers that&apos;s helped me define clearer, more user-friendly requirements.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
               You can find the full list of my publications <Link href="/publications" className="custom-link hover:opacity-70 transition">here</Link>.
@@ -52,7 +52,7 @@ export default function WorkPage() {
           <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
             <h2 className="text-xl md:text-2xl font-bold mb-4">Sabbatical 2025</h2>
             <p className="text-sm md:text-lg leading-relaxed">
-              I hit pause on my usual PM life (meetings, roadmaps, coffee... repeat) and dove headfirst into the world of shiny new tech! 🌊✨ I decided it was time to do something different, like building this very website you’re looking at 😎 Armed with Gen AI powers, I sprinkled some OpenAI magic ✨ into this site to create the chat feature you're chatting with (or about to). Then, I added a vector database to keep things zippy and wallet-friendly in case y’all bring in a tsunami of questions 🌪️📉. And because I love to <del>spy</del> observe things like a data detective 🕵️‍♀️, I plugged in Elasticsearch and Kibana to track what’s being asked the most (yes, I saw your question 👀 and no, I won’t judge).
+              I hit pause on my usual PM life (meetings, roadmaps, coffee... repeat) and dove headfirst into the world of shiny new tech! 🌊✨ I decided it was time to do something different, like building this very website youre looking at 😎 Armed with Gen AI powers, I sprinkled some OpenAI magic ✨ into this site to create the chat feature you&apos;re chatting with (or about to). Then, I added a vector database to keep things zippy and wallet-friendly in case y&apos;all bring in a tsunami of questions 🌪️📉. And because I love to <del>spy</del> observe things like a data detective 🕵️‍♀️, I plugged in Elasticsearch and Kibana to track what’s being asked the most (yes, I saw your question 👀 and no, I won’t judge).
             </p>
           </div>
         </div>

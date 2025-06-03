@@ -23,7 +23,7 @@ export default function PhotographyPage() {
           With the X100F in hand, I began exploring the streets, capturing candid moments that tell stories of everyday life. I ventured into nature, seeking out serene landscapes and the subtle interplay of light and shadow. Portraits became another avenue, allowing me to connect with individuals and encapsulate their essence through my lens.
         </p>
         <p className="mt-4 text-base md:text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          Photography has since become more than a hobby; it's a way for me to observe and appreciate the world around me. Each photograph is a reflection of a moment that caught my eye and stirred my curiosity.
+          Photography has since become more than a hobby; it&apos;s a way for me to observe and appreciate the world around me. Each photograph is a reflection of a moment that caught my eye and stirred my curiosity.
         </p>
         <p className="mt-4 text-base md:text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           This webpage offers just a glimpse of my work — you can find the full collection on 

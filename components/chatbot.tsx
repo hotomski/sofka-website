@@ -74,7 +74,7 @@ export default function Chatbot() {
       const data = await response.json();
       const botMessage: Message = { role: "bot", content: data.answer };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
+    } catch {
       setMessages((prev) => [
         ...prev,
         {
