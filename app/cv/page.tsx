@@ -1,3 +1,5 @@
+"use client";
+
 import { FaDownload } from "react-icons/fa";
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
