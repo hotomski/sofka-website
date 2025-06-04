@@ -8,12 +8,14 @@ export default function PhotographyPage() {
   return (
     <div className="min-h-screen bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-4 py-16 font-sans"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
+
+        
+        {/* Page Title */}
+        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Photography</h1>
       
       {/* Content Wrapper with White Background */}
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 max-w-5xl w-full">
         
-        {/* Page Title */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Photography</h1>
 
         {/* Description */}
         <p className="mt-6 text-base md:text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
