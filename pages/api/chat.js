@@ -3,7 +3,9 @@ import OpenAI from "openai";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
 
-dotenv.config();
+//dotenv.config();
+
+const userQuestionCounts = {};
 
 // Initialize OpenAI API
 const openai = new OpenAI({
