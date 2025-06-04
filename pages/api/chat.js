@@ -28,7 +28,6 @@ const esClient = new ElasticsearchClient({
 
 export default async function handler(req, res) {
 
-  export default async function handler(req, res) {
     // Get user IP (works for Vercel/Next.js API routes)
     const ip =
       req.headers["x-forwarded-for"]?.split(",")[0] ||
