@@ -7,7 +7,7 @@ dotenv.config();
 
 // Initialize OpenAI API
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 
 /// Initialize Qdrant client
@@ -27,6 +27,31 @@ const esClient = new ElasticsearchClient({
 });
 
 export default async function handler(req, res) {
+
+  export default async function handler(req, res) {
+    // Get user IP (works for Vercel/Next.js API routes)
+    const ip =
+      req.headers["x-forwarded-for"]?.split(",")[0] ||
+      req.socket?.remoteAddress ||
+      "unknown";
+  
+    // Get today's date as a string
+    const today = new Date().toISOString().slice(0, 10);
+  
+    // Create a unique key for this IP and day
+    const userKey = `${ip}_${today}`;
+  
+    // Initialize or increment the count
+    userQuestionCounts[userKey] = userQuestionCounts[userKey] || 0;
+  
+    if (userQuestionCounts[userKey] >= 1) {
+      return res
+        .status(429)
+        .json({ error: "Sorry folks, I'm not that rich. You reached your daily question limit ß(20 per day). You can ask more questions tomorrow!" });
+    }
+  
+    userQuestionCounts[userKey]++;
+
   if (req.method === "POST") {
     const { question } = req.body;
 
