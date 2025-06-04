@@ -1,6 +1,6 @@
 import { FaDownload } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
+//import Image from "next/image";
 import Chatbot from "../../components/chatbot";
 
 export default function CV() {
@@ -32,7 +32,24 @@ export default function CV() {
           </a>
         </div>
 
-        {/* Display PDF Pages as Images */}
+        {/* Embedded PDF in Card Style */}
+        <div className="mt-12 w-full flex flex-col items-center">
+          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-3xl">
+            <h2 className="text-xl font-semibold mb-2 text-center">View CV as PDF</h2>
+            <div className="rounded-lg overflow-hidden" style={{ height: "900px" }}>
+              <iframe
+                src="/images/cv/cv.pdf"
+                title="Sofija Hotomski CV"
+                width="100%"
+                height="100%"
+                style={{ border: "none" }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        {/* Optionally, keep the images below if you want */}
+        {/* 
         <div className="mt-12 flex flex-col gap-8 items-center">
           <Image
             src="/images/cv/cv_page1.jpg"
@@ -53,6 +70,7 @@ export default function CV() {
             priority
           />
         </div>
+        */}
 
         {/* Chatbot */}
         <Chatbot />
