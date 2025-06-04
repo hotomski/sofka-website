@@ -9,11 +9,12 @@ export default function MusicPage() {
     <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-8 py-16 font-sans"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
             {/* Page Title */}
-            <h1 className="text-6xl font-extrabold mt-8 tracking-tight">Music Projects</h1>
+            
+            <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight">Music Projects</h1>
       
       {/* Content Wrapper with White Background */}
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 max-w-5xl w-full">
-        
+    
 
         {/* Description */}
         <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
