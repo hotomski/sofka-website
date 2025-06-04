@@ -10,12 +10,11 @@ export default function GardeningPage() {
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
       
          {/* Page Title */}
-         <h1 className="text-6xl font-extrabold mt-8 tracking-tight text-center">Gardening</h1>
-         
+         <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight">Gardening</h1>
+     
+
       {/* Content Wrapper with White Background */}
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 max-w-5xl w-full">
-        
-     
 
         {/* Description */}
         <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
