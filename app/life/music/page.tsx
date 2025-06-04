@@ -6,9 +6,8 @@ import Chatbot from "../../../components/chatbot";
 
 export default function MusicPage() {
   return (
-    <div className="min-h-screen bg-cover bg-center bg-fixed text-black flex items-center justify-center px-8 py-16 font-sans"
+    <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-8 py-16 font-sans"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
-
             {/* Page Title */}
             <h1 className="text-6xl font-extrabold mt-8 tracking-tight">Music Projects</h1>
       
