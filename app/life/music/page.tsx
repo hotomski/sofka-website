@@ -10,7 +10,7 @@ export default function MusicPage() {
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
 
             {/* Page Title */}
-            <h1 className="text-6xl font-extrabold mt-8 tracking-tight text-center">Music Projects</h1>
+            <h1 className="text-6xl font-extrabold mt-8 tracking-tight">Music Projects</h1>
       
       {/* Content Wrapper with White Background */}
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 max-w-5xl w-full">
