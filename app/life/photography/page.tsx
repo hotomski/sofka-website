@@ -11,7 +11,7 @@ export default function PhotographyPage() {
 
         
         {/* Page Title */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Photography</h1>
+        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight">Photography test</h1>
       
       {/* Content Wrapper with White Background */}
       <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 max-w-5xl w-full">
