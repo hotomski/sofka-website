@@ -2,16 +2,10 @@
 
 import { FaDownload } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 import Chatbot from "../../components/chatbot";
-import { Document, Page, pdfjs } from "react-pdf";
-import { useState } from "react";
-
-// Set workerSrc for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function CV() {
-  const [numPages, setNumPages] = useState<number | null>(null);
-
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-fixed"
@@ -40,30 +34,26 @@ export default function CV() {
           </a>
         </div>
 
-        {/* Embedded PDF with react-pdf */}
-        <div className="mt-12 w-full flex flex-col items-center">
-          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-5xl">
-            <h2 className="text-xl font-semibold mb-2 text-center">View CV as PDF</h2>
-            <div className="rounded-lg flex flex-col items-center" style={{ background: "#fff" }}>
-              <Document
-                file="/images/cv/cv.pdf"
-                onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-                loading="Loading CV..."
-                className="w-full flex flex-col items-center"
-              >
-                {Array.from(new Array(numPages), (el, index) => (
-                  <Page
-                    key={`page_${index + 1}`}
-                    pageNumber={index + 1}
-                    width={800}
-                    renderAnnotationLayer={false}
-                    renderTextLayer={false}
-                    className="my-4 shadow"
-                  />
-                ))}
-              </Document>
-            </div>
-          </div>
+        {/* CV Images */}
+        <div className="mt-12 flex flex-col gap-8 items-center w-full">
+          <Image
+            src="/images/cv/cv_page1.jpg"
+            alt="CV Page 1"
+            width={800}
+            height={1131}
+            quality={100}
+            className="rounded-lg shadow-lg w-full md:w-auto"
+            priority
+          />
+          <Image
+            src="/images/cv/cv_page2.jpg"
+            alt="CV Page 2"
+            width={800}
+            height={1131}
+            quality={100}
+            className="rounded-lg shadow-lg w-full md:w-auto"
+            priority
+          />
         </div>
 
         {/* Chatbot */}
