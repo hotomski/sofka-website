@@ -9,7 +9,7 @@ export default function CV() {
       className="min-h-screen bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}
     >
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-6xl mx-auto">
         {/* Page Title */}
         <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">
           Curriculum Vitae
@@ -34,9 +34,9 @@ export default function CV() {
 
         {/* Embedded PDF in Card Style */}
         <div className="mt-12 w-full flex flex-col items-center">
-          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-3xl">
+          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-5xl">
             <h2 className="text-xl font-semibold mb-2 text-center">View CV as PDF</h2>
-            <div className="rounded-lg overflow-hidden" style={{ height: "900px" }}>
+            <div className="rounded-lg overflow-hidden" style={{ height: "1000px" }}>
               <iframe
                 src="/images/cv/cv.pdf"
                 title="Sofija Hotomski CV"
