@@ -44,10 +44,10 @@ export default async function handler(req, res) {
     // Initialize or increment the count
     userQuestionCounts[userKey] = userQuestionCounts[userKey] || 0;
   
-    if (userQuestionCounts[userKey] >= 2) {
+    if (userQuestionCounts[userKey] >= 1) {
       return res
         .status(429)
-        .json({ error: "Sorry folks, I'm not that rich. You reached your daily question limit ß(20 per day). You can ask more questions tomorrow!" });
+        .json({ answer: "Sorry folks, I'm not that rich. You reached your daily question limit ß(20 per day). You can ask more questions tomorrow!" });
     }
   
     userQuestionCounts[userKey]++;
