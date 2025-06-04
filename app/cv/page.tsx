@@ -1,8 +1,15 @@
 import { FaDownload } from "react-icons/fa";
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
+import { Document, Page, pdfjs } from "react-pdf";
+import { useState } from "react";
+
+// Set workerSrc for react-pdf
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export default function CV() {
+  const [numPages, setNumPages] = useState<number | null>(null);
+
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-fixed"
@@ -31,32 +38,28 @@ export default function CV() {
           </a>
         </div>
 
-        {/* Embedded PDF in Card Style */}
+        {/* Embedded PDF with react-pdf */}
         <div className="mt-12 w-full flex flex-col items-center">
-          <div
-            className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-5xl"
-            style={{ background: "#fff" }} // Ensures white background
-          >
+          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full max-w-5xl">
             <h2 className="text-xl font-semibold mb-2 text-center">View CV as PDF</h2>
-            <div
-              className="rounded-lg"
-              style={{
-                background: "#fff", // Ensures white background
-                width: "100%",
-                height: "1100px", // Adjust as needed
-              }}
-            >
-              <iframe
-                src="/images/cv/cv.pdf"
-                title="Sofija Hotomski CV"
-                width="100%"
-                height="100%"
-                style={{
-                  border: "none",
-                  background: "#fff", // Ensures iframe background is white
-                  display: "block",
-                }}
-              ></iframe>
+            <div className="rounded-lg flex flex-col items-center" style={{ background: "#fff" }}>
+              <Document
+                file="/images/cv/cv.pdf"
+                onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                loading="Loading CV..."
+                className="w-full flex flex-col items-center"
+              >
+                {Array.from(new Array(numPages), (el, index) => (
+                  <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    width={800}
+                    renderAnnotationLayer={false}
+                    renderTextLayer={false}
+                    className="my-4 shadow"
+                  />
+                ))}
+              </Document>
             </div>
           </div>
         </div>
