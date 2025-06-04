@@ -24,12 +24,11 @@ export default function Home() {
           className="rounded-full border-4 border-green-900 shadow-lg transition-transform transform hover:scale-105"
         />
 
-      {/* Welcome Message */}
-      <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Hey, I&apos;m Sofija! 👋</h1>
-        <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl">
-          Sofija has survived in the IT business for fifteen years and in&nbsp;
-          <span className="whitespace-nowrap">motherhood for four.</span>
-        </p>
+        {/* Welcome Message */}
+        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Hey, I&apos;m Sofija! 👋</h1>
+        <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl md:whitespace-nowrap">
+  Sofija has survived in the IT business for fifteen years and in motherhood for four.
+</p>
 
         {/* Grid for sections */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
