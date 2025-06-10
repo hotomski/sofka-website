@@ -17,15 +17,6 @@ export default function Home() {
 
       <div className="text-black flex flex-col items-center justify-between px-4 md:px-8 py-16 font-sans max-w-6xl mx-auto">
 
-         {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-        </div>
-      </nav>
-      
         {/* Profile Image */}
         <Image
           src="/profile.jpg"
