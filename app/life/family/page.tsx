@@ -51,10 +51,18 @@ export default function FamilyPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-8 py-16 font-sans"
+    <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-4 md:px-8 py-8 md:py-16 font-sans"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
+      
+      {/* Top Navigation */}
+      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-center md:justify-end gap-4 md:gap-8 py-4 px-2 md:px-0 bg-white bg-opacity-70 rounded-b-lg shadow-md mb-4">
+        <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
+        <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
+        <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+        <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
+      </nav>
 
-      <h1 className="text-6xl font-extrabold mt-8 tracking-tight">My family story</h1>
+      <h1 className="text-6xl font-extrabold mt-8 tracking-tight text-center">My family story</h1>
 
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
         <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
@@ -126,6 +134,7 @@ export default function FamilyPage() {
         <Chatbot />
       </div>
 
+      {/* Bottom Navigation */}
       <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
         <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
         <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
