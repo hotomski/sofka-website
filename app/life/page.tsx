@@ -8,6 +8,16 @@ export default function LifePage() {
       style={{ backgroundImage: "url('/background_flower.jpg')" }}
     >
       <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+
+             {/* Top Navigation - left-centered, pill-shaped background */}
+      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
+        <div className="flex flex-wrap gap-4 items-center">
+          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
+          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+        </div>
+      </nav>
+
         {/* Page Title */}
         <h1 className="text-5xl md:text-6xl font-extrabold mt-8 tracking-tight">Life</h1>
         <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl">
