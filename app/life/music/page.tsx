@@ -9,6 +9,16 @@ export default function MusicPage() {
     <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-8 py-16 font-sans"
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
             {/* Page Title */}
+
+            {/* Top Navigation - left-centered, pill-shaped background */}
+      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
+        <div className="flex flex-wrap gap-4 items-center">
+          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
+          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
+        </div>
+      </nav>
             
             <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight">Music Projects</h1>
       
