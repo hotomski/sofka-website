@@ -10,7 +10,10 @@ export default function WorkPage() {
       style={{ backgroundImage: "url('/background_flower.jpg')" }}
     >
 
-      {/* Top Navigation - left-centered, pill-shaped background */}
+    
+      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+
+          {/* Top Navigation - left-centered, pill-shaped background */}
       <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
         <div className="flex flex-wrap gap-4 items-center">
           <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
@@ -18,7 +21,7 @@ export default function WorkPage() {
           <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
         </div>
       </nav>
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+      
         {/* Page Title */}
         <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Work Experience</h1>
         <p className="mt-6 text-base md:text-xl leading-relaxed text-black text-center max-w-2xl">
