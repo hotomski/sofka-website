@@ -55,14 +55,14 @@ export default function FamilyPage() {
       style={{ backgroundImage: "url('/background_flower.jpg')" }}>
       
       {/* Top Navigation */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-center md:justify-end gap-4 md:gap-8 py-4 px-2 md:px-0 bg-white bg-opacity-70 rounded-b-lg shadow-md mb-4">
+      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-center md:justify-end gap-4 md:gap-8 py-4 px-2 md:px-0 bg-white bg-opacity-70 rounded-b-lg shadow-md mb-8">
         <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
         <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
         <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
         <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
       </nav>
 
-      <h1 className="text-6xl font-extrabold mt-8 tracking-tight text-center">My family story</h1>
+      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">My family story</h1>
 
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
         <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
