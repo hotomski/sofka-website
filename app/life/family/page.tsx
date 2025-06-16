@@ -84,11 +84,11 @@ export default function FamilyPage() {
           </p>
 
           <div className="relative my-8">
-            <div className="relative w-full h-[250px] flex items-center justify-center overflow-hidden">
+            <div className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center overflow-hidden">
               <img
                 src={images[currentIndex].src}
                 alt={images[currentIndex].alt}
-                className="max-h-[200px] max-w-[300px] object-contain"
+                className="max-h-[320px] md:max-h-[480px] w-auto max-w-full object-contain rounded-lg shadow"
               />
             </div>
             <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
@@ -117,11 +117,11 @@ export default function FamilyPage() {
           </p>
 
           <div className="relative my-8">
-            <div className="relative w-full h-[250px] flex items-center justify-center overflow-hidden">
+            <div className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center overflow-hidden">
               <img
                 src={newFamilyImages[newFamilyIndex].src}
                 alt={newFamilyImages[newFamilyIndex].alt}
-                className="max-h-[200px] max-w-[300px] object-contain"
+                className="max-h-[320px] md:max-h-[480px] w-auto max-w-full object-contain rounded-lg shadow"
               />
             </div>
             <button onClick={handleNewFamilyPrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
@@ -137,11 +137,11 @@ export default function FamilyPage() {
       </div>
 
       {/* Bottom Navigation */}
-      <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
-        <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-        <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-        <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-        <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+      <nav className="mt-12 w-full flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8 max-w-5xl mx-auto">
+        <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
+        <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
+        <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+        <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
       </nav>
     </div>
   );
