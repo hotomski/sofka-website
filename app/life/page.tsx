@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
+import { FaUsers, FaLeaf, FaMusic, FaCamera } from "react-icons/fa";
 
 export default function LifePage() {
   return (
@@ -20,7 +21,7 @@ export default function LifePage() {
               aria-current="page"
             >
               Life
-          </Link>
+            </Link>
             <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold flex items-center">CV</Link>
           </div>
         </nav>
@@ -36,32 +37,36 @@ export default function LifePage() {
           {/* Family */}
           <Link
             href="/life/family"
-            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex items-center justify-center transition-transform transform hover:scale-105"
+            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
+            <FaUsers className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Family</h1>
           </Link>
 
           {/* Music */}
           <Link
             href="/life/music"
-            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex items-center justify-center transition-transform transform hover:scale-105"
+            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
+            <FaMusic className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Music</h1>
           </Link>
 
           {/* Photography */}
           <Link
             href="/life/photography"
-            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex items-center justify-center transition-transform transform hover:scale-105"
+            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
+            <FaCamera className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Photography</h1>
           </Link>
 
           {/* Gardening */}
           <Link
             href="/life/gardening"
-            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex items-center justify-center transition-transform transform hover:scale-105"
+            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
+            <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Gardening</h1>
           </Link>
         </div>
