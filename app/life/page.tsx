@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
-import { useState } from "react";
 
 export default function LifePage() {
-  const [submenuOpen, setSubmenuOpen] = useState(false);
-
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-fixed"
@@ -12,35 +9,18 @@ export default function LifePage() {
     >
       <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
 
-        {/* Top Navigation - with Life submenu */}
-        <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8 relative z-20">
+        {/* Top Navigation - left-centered, pill-shaped background */}
+        <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
           <div className="flex flex-wrap gap-4 items-center">
             <Link href="/" className="hover:opacity-70 transition text-black font-semibold flex items-center">Home</Link>
             <Link href="/work" className="hover:opacity-70 transition text-black font-semibold flex items-center">Work</Link>
-            <div
-              className="relative flex items-center"
-              onMouseEnter={() => setSubmenuOpen(true)}
-              onMouseLeave={() => setSubmenuOpen(false)}
+            <Link
+              href="/life"
+              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+              aria-current="page"
             >
-              <Link
-                href="/life"
-                className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition flex items-center"
-                aria-current="page"
-              >
-                Life
-              </Link>
-              {/* Submenu */}
-              <div
-                className={`absolute left-0 top-full mt-2 bg-white bg-opacity-95 rounded-lg shadow-lg border border-gray-200 min-w-[160px] flex flex-col transition-all duration-200 ${
-                  submenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <Link href="/life/family" className="px-4 py-2 hover:bg-green-50 rounded-t-lg transition text-black">Family</Link>
-                <Link href="/life/gardening" className="px-4 py-2 hover:bg-green-50 transition text-black">Gardening</Link>
-                <Link href="/life/music" className="px-4 py-2 hover:bg-green-50 transition text-black">Music</Link>
-                <Link href="/life/photography" className="px-4 py-2 hover:bg-green-50 rounded-b-lg transition text-black">Photography</Link>
-              </div>
-            </div>
+              Life
+          </Link>
             <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold flex items-center">CV</Link>
           </div>
         </nav>
