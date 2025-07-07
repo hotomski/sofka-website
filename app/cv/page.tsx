@@ -19,6 +19,13 @@ export default function CV() {
           <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
           <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
+          <Link
+              href="/cv"
+              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+              aria-current="page"
+            >
+              CV
+          </Link>
         </div>
       </nav>
         {/* Page Title */}
@@ -73,6 +80,13 @@ export default function CV() {
           <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+          <Link
+            href="/cv"
+            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+            aria-current="page"
+          >
+            CV
+          </Link>
         </nav>
       </div>
     </div>
