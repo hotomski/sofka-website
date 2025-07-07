@@ -16,11 +16,11 @@ export default function LifePage() {
             <Link href="/work" className="hover:opacity-70 transition text-black font-semibold flex items-center">Work</Link>
             <Link
               href="/life"
-              className="hover:opacity-70 transition text-black font-semibold flex items-center border-b-4 border-green-700 pb-0"
-              style={{ lineHeight: 1.2 }}
+              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+              aria-current="page"
             >
               Life
-            </Link>
+          </Link>
             <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold flex items-center">CV</Link>
           </div>
         </nav>
@@ -75,8 +75,8 @@ export default function LifePage() {
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link
             href="/life"
-            className="hover:opacity-70 transition text-black border-b-4 border-green-700 pb-0"
-            style={{ lineHeight: 1.2 }}
+            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+            aria-current="page"
           >
             Life
           </Link>
