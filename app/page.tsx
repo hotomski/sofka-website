@@ -52,9 +52,10 @@ export default function Home() {
 
         {/* Navigation Links and Chatbot */}
         <nav className="mt-12 w-full flex flex-wrap justify-center items-center gap-4 md:gap-6 text-lg font-medium">
+          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
+          
 
           {/* Chatbot Icon */}
           <div className="ml-4">

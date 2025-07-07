@@ -12,9 +12,16 @@ export default function LifePage() {
              {/* Top Navigation - left-centered, pill-shaped background */}
       <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
         <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+            <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
+            <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
+            <Link
+              href="/life"
+              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+              aria-current="page"
+            >
+              Life
+            </Link>
+            <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
         </div>
       </nav>
 
@@ -65,9 +72,15 @@ export default function LifePage() {
         {/* Navigation Links */}
         <nav className="mt-12 w-full flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg font-medium">
           <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+          <Link
+            href="/life"
+            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+            aria-current="page"
+          >
+            Life
+          </Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
         </nav>
       </div>
     </div>

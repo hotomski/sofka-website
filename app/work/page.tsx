@@ -17,11 +17,18 @@ export default function WorkPage() {
       <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
         <div className="flex flex-wrap gap-4 items-center">
           <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
+          <Link
+              href="/work"
+              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+              aria-current="page"
+            >
+              Work
+          </Link>
           <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
         </div>
       </nav>
-      
+
         {/* Page Title */}
         <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Work Experience</h1>
         <p className="mt-6 text-base md:text-xl leading-relaxed text-black text-center max-w-2xl">
@@ -74,8 +81,15 @@ export default function WorkPage() {
         {/* Navigation Links */}
         <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-sm md:text-lg font-medium">
           <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
+          <Link
+            href="/work"
+            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+            aria-current="page"
+          >
+            Work
+          </Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
         </nav>
       </div>
     </div>

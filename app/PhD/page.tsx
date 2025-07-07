@@ -13,12 +13,12 @@ export default function PhDPage() {
       <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
         <div className="flex flex-wrap gap-4 items-center">
           <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
           <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
         </div>
       </nav>
-      
+
       <div className="text-black flex flex-col items-center justify-center px-8 py-16 font-sans max-w-5xl mx-auto">
         {/* Page Title */}
         <h1 className="text-6xl font-extrabold mt-8 tracking-tight">PhD project</h1>
@@ -111,9 +111,9 @@ export default function PhDPage() {
         {/* Navigation Links */}
         <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
           <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
         </nav>
       </div>
     </div>
