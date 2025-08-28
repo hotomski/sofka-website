@@ -42,7 +42,7 @@ export default function GardeningPage() {
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           So far, we tasted all of our beautiful veggies – radishes, spring onions, carrots and tomatoes. The rest – sorry! Here are the short sad stories:
           <br /><br />
-          <span className="font-semibold">Spinach:</span> I didn&apos;t know when is the right time to pick it, so it started to bloom and didn&apos;t look like spinach at all. Or they sold me seeds of something that wasn&apos;t spinach at all – we&apos;ll never know. 🙂
+          <span className="font-semibold">Spinach:</span> I didn&apos;t know when is the right time to pick it, so it started to bloom and didn&apos;t look like spinach at all. Or they sold me seeds of something that wasn&apos;t spinach at all – we&apos;ll never know.
           <br /><br />
           <span className="font-semibold">Zucchini:</span> they just died. Not sure why but not even one zucchini survived although I gave the water regularly. Sorry zucchini!
           <br /><br />
