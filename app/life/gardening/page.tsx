@@ -28,13 +28,13 @@ export default function GardeningPage() {
 
         {/* Description */}
         <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          Since March 2025, I&apos;ve been on garden leave — and I decided to take it quite literally! I rolled up my sleeves, grabbed some seeds, and started my first real gardening adventure.
+           Here&apos;s a short story about my first real gardening adventure. It all started in March 2025 when I decided to roll up my sleeves and dive into the world of gardening.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
         </p>
         <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          Since March 2025, I&apos;ve been on garden leave — and I decided to take it quite literally! I rolled up my sleeves, grabbed some seeds, and started my first real gardening adventure.
+          HEre my first real gardening adventure.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It&apos;s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
