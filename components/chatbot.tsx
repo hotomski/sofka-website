@@ -197,6 +197,10 @@ export default function Chatbot() {
               {isLoading ? "..." : "Send"}
             </button>
           </div>
+          {/* Suggestions */}
+          <div className="text-xs text-gray-500 mt-1 text-center">
+            <span className="font-semibold">Examples:</span> Summarize her working experience &middot; What does she like?
+          </div>
         </div>
       )}
     </div>
