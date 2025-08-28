@@ -45,35 +45,37 @@ export default function GardeningPage() {
 
         {/* Photos Section */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
           {/* Photo 1 */}
+          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+            <img src="/images/gardening/photo5.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
+          </div>
+             {/* Photo 2 */}
+             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+            <img src="/images/gardening/photo6.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
+          </div>
+          {/* Photo 3 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo1.jpg" alt="Gardening Photo 1" className="w-full h-[32rem] object-cover rounded-lg" />
           </div>
 
-          {/* Photo 2 */}
+          {/* Photo 4 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo4.jpg" alt="Gardening Photo 4" className="w-full h-[32rem] object-cover rounded-lg" />
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Photo 3 */}
+          {/* Photo 5 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo2.jpg" alt="Gardening Photo 2" className="w-full rounded-lg" />
           </div>
 
-          {/* Photo 4 */}
+          {/* Photo 6 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo3.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
           </div>
-             {/* Photo 5 */}
-             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
-            <img src="/images/gardening/photo5.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
-          </div>
-             {/* Photo 6 */}
-             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
-            <img src="/images/gardening/photo6.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
-          </div>
+             
         </div>
 
         <Chatbot />
