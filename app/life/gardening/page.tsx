@@ -33,10 +33,16 @@ export default function GardeningPage() {
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
         </p>
+        <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
+          Since March 2025, I&apos;ve been on garden leave — and I decided to take it quite literally! I rolled up my sleeves, grabbed some seeds, and started my first real gardening adventure.
+        </p>
+        <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
+          With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It&apos;s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
+        </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           So far, we tasted all of our beautiful veggies – radishes, spring onions, carrots and tomatoes. The rest – sorry! Here are the short sad stories:
           <br /><br />
-          <span className="font-semibold">Spinach:</span> I didn't know when is the right time to pick it, so it started to bloom and didn't look like spinach at all. Or they sold me seeds of something that wasn't spinach at all – we'll never know. 🙂
+          <span className="font-semibold">Spinach:</span> I didn&apos;t know when is the right time to pick it, so it started to bloom and didn&apos;t look like spinach at all. Or they sold me seeds of something that wasn&apos;t spinach at all – we&apos;ll never know. 🙂
           <br /><br />
           <span className="font-semibold">Zucchini:</span> they just died. Not sure why but not even one zucchini survived although I gave the water regularly. Sorry zucchini!
           <br /><br />
