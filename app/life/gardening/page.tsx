@@ -53,13 +53,13 @@ export default function GardeningPage() {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* Photo 1 */}
-          <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
-            <img src="/images/gardening/photo5.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
-          </div>
-             {/* Photo 2 */}
-             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
-            <img src="/images/gardening/photo6.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
-          </div>
+        <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+          <img src="/images/gardening/photo5.jpg" alt="Gardening Photo 5" className="w-full rounded-lg" />
+        </div>
+        {/* Photo 2 */}
+        <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+          <img src="/images/gardening/photo6.jpg" alt="Gardening Photo 6" className="w-full h-auto rounded-lg object-cover" />
+        </div>
           {/* Photo 3 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo1.jpg" alt="Gardening Photo 1" className="w-full h-[32rem] object-cover rounded-lg" />
