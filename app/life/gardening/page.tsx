@@ -33,12 +33,6 @@ export default function GardeningPage() {
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
         </p>
-        <p className="mt-6 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          HEre my first real gardening adventure.
-        </p>
-        <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It&apos;s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
-        </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
           So far, we tasted all of our beautiful veggies – radishes, spring onions, carrots and tomatoes. The rest – sorry! Here are the short sad stories:
           <br /><br />
