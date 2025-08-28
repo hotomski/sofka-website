@@ -34,10 +34,13 @@ export default function GardeningPage() {
           With a mix of excitement and beginner&apos;s optimism, I planted tomatoes, cucumbers, zucchini, carrots, spring onions, radishes, and spinach — all from seed. It’s been a rewarding (and slightly muddy) journey that involves a lot of watering, nurturing, and hoping the plants read the manual on how to grow.
         </p>
         <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          So far, everything&apos;s sprouting along beautifully… except the zucchini, which clearly had other plans. Sorry, zucchini! But the radishes and spring onions have already made it to our plates, proudly homegrown and surprisingly tasty.
-        </p>
-        <p className="mt-4 text-lg leading-relaxed text-black text-justify max-w-3xl mx-auto">
-          The project is still a work in progress, and I&apos;ll be sharing a full timeline and all the little steps I took to make my garden grow. Stay tuned — green thumbs crossed!
+          So far, we tasted all of our beautiful veggies – radishes, spring onions, carrots and tomatoes. The rest – sorry! Here are the short sad stories:
+          <br /><br />
+          <span className="font-semibold">Spinach:</span> I didn't know when is the right time to pick it, so it started to bloom and didn't look like spinach at all. Or they sold me seeds of something that wasn't spinach at all – we'll never know. 🙂
+          <br /><br />
+          <span className="font-semibold">Zucchini:</span> they just died. Not sure why but not even one zucchini survived although I gave the water regularly. Sorry zucchini!
+          <br /><br />
+          <span className="font-semibold">Cucumbers:</span> drama queens. I gave my best but nope. The last two were eaten by some bugs in the soil. 🤷‍♀️
         </p>
 
         {/* Photos Section */}
@@ -47,21 +50,29 @@ export default function GardeningPage() {
             <img src="/images/gardening/photo1.jpg" alt="Gardening Photo 1" className="w-full h-[32rem] object-cover rounded-lg" />
           </div>
 
-          {/* Photo 4 */}
+          {/* Photo 2 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo4.jpg" alt="Gardening Photo 4" className="w-full h-[32rem] object-cover rounded-lg" />
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Photo 2 */}
+          {/* Photo 3 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo2.jpg" alt="Gardening Photo 2" className="w-full rounded-lg" />
           </div>
 
-          {/* Photo 3 */}
+          {/* Photo 4 */}
           <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
             <img src="/images/gardening/photo3.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
+          </div>
+             {/* Photo 5 */}
+             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+            <img src="/images/gardening/photo5.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
+          </div>
+             {/* Photo 6 */}
+             <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+            <img src="/images/gardening/photo6.jpg" alt="Gardening Photo 3" className="w-full rounded-lg" />
           </div>
         </div>
 
