@@ -74,7 +74,7 @@ export default function FriendsPage() {
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
         <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
           <h2 className="text-xl font-semibold mb-3">
-            Friendships teach us who we are
+            Friendships teach us who we are (and don&apos;t worry, we&apos;re allowed to change)
           </h2>
 
           <p className="text-lg leading-relaxed">
