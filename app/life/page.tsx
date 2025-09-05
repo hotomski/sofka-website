@@ -69,9 +69,8 @@ export default function LifePage() {
             <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Gardening</h1>
           </Link>
-        </div>
 
-        {/* Gardening */}
+        {/* Friends */}
         <Link
             href="/life/friends"
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
@@ -79,8 +78,16 @@ export default function LifePage() {
             <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Friends</h1>
           </Link>
+            {/* Sport */}
+        <Link
+            href="/life/sport"
+            className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
+          >
+            <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
+            <h1 className="text-xl md:text-2xl font-bold text-center">Sport</h1>
+          </Link>
         </div>
-
+      </div>
         {/* Chatbot */}
         <Chatbot />
 
