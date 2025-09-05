@@ -6,8 +6,9 @@ dotenv.config();
 
 // Initialize Qdrant client
 const qdrant = new QdrantClient({
-  url: "http://localhost:6333", // Replace with your Qdrant Cloud URL if using the cloud
+  url: "https://f94c63a9-ccd0-4900-9a50-8f4a609592b3.eu-central-1-0.aws.cloud.qdrant.io", // Replace with your Qdrant Cloud URL if using the cloud
   apiKey: process.env.QDRANT_API_KEY, // Add this to your .env if using Qdrant Cloud
+  checkCompatibility: false,
 });
 
 async function deleteCollection() {

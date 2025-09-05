@@ -47,7 +47,7 @@ export default function SportPage() {
           <p className="text-lg leading-relaxed">
             This page is very simple and could be written in only one word: <span className="font-bold">Insanity!</span> 😅<br /><br />
             This is a program from Shaun T which I&apos;ve been doing for years already—probably about 15 years, but who&apos;s counting? 🤷‍♀️ It is simply the best and I can highly recommend it!<br /><br />
-            These photos show my results after my second pregnancy, when my kid was about 6 months old. 💪😊
+            These photos show my results after my second pregnancy, when my kid was about 9 months old. 💪😊
           </p>
           <div className="relative my-8">
             <div className="relative w-full h-[260px] md:h-[370px] flex items-center justify-center overflow-hidden">
