@@ -4,7 +4,7 @@ import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
 
 import dotenv from "dotenv";
 dotenv.config();
-console.log(process.env.OPENAI_API_KEY);
+console.log("new key:"+process.env.OPENAI_API_KEY);
 
 const userQuestionCounts = {};
 
