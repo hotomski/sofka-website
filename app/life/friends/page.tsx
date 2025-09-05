@@ -42,7 +42,7 @@ export default function FriendsPage() {
         </div>
       </nav>
 
-      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">My family story</h1>
+      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">My friends</h1>
 
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
         <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">

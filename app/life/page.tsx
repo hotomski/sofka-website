@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
-import { FaUsers, FaLeaf, FaMusic, FaCamera } from "react-icons/fa";
+import { 
+  FaUsers, 
+  FaLeaf, 
+  FaMusic, 
+  FaCamera, 
+  FaUserFriends, 
+  FaRunning 
+} from "react-icons/fa";
 
 export default function LifePage() {
   return (
@@ -70,40 +77,42 @@ export default function LifePage() {
             <h1 className="text-xl md:text-2xl font-bold text-center">Gardening</h1>
           </Link>
 
-        {/* Friends */}
-        <Link
+          {/* Friends */}
+          <Link
             href="/life/friends"
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
-            <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
+            <FaUserFriends className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Friends</h1>
           </Link>
-            {/* Sport */}
-        <Link
+
+          {/* Sport */}
+          <Link
             href="/life/sport"
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
-            <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
+            <FaRunning className="text-green-700 text-4xl md:text-5xl mb-4" />
             <h1 className="text-xl md:text-2xl font-bold text-center">Sport</h1>
           </Link>
         </div>
       </div>
-        {/* Chatbot */}
-        <Chatbot />
 
-        {/* Navigation Links */}
-        <nav className="mt-12 w-full flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg font-medium">
-          <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-          <Link
-            href="/life"
-            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
-            aria-current="page"
-          >
-            Life
-          </Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-        </nav>
+      {/* Chatbot */}
+      <Chatbot />
+
+      {/* Navigation Links */}
+      <nav className="mt-12 w-full flex flex-wrap justify-center gap-4 md:gap-6 text-base md:text-lg font-medium">
+        <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
+        <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
+        <Link
+          href="/life"
+          className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
+          aria-current="page"
+        >
+          Life
+        </Link>
+        <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
+      </nav>
     </div>
   );
 }
