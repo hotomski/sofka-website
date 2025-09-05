@@ -97,7 +97,6 @@ export default function LifePage() {
           </Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
         </nav>
-      </div>
     </div>
   );
 }
