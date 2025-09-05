@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import '../../style/link_style.css';
 import Chatbot from "../../../components/chatbot";
 import { useState } from "react";
@@ -18,7 +19,6 @@ export default function FriendsPage() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [newFamilyIndex, setNewFamilyIndex] = useState(0);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -35,7 +35,7 @@ export default function FriendsPage() {
       {/* Top Navigation - left-centered, pill-shaped background */}
       <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
         <div className="flex flex-wrap gap-4 items-center">
-        <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>  
+          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>  
           <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
@@ -49,23 +49,26 @@ export default function FriendsPage() {
 
           <h2 className="text-xl font-semibold mb-3">Friendships teach us who we are</h2>
           <p className="text-lg leading-relaxed">
-            OK, so I am that supersocial person, as my sister would say "a social butterfly". 
+            OK, so I am that supersocial person, as my sister would say &quot;a social butterfly&quot;.
           </p>
           <p className="text-lg leading-relaxed">
-             I keep in touch with people from my highschool and university days and I am so grateful for all the experiences we&apos;ve bin through.Those people are integral part of me and I miss them deeply now when we see each other so rarely.'
+             I keep in touch with people from my highschool and university days and I am so grateful for all the experiences we&apos;ve been through. Those people are an integral part of me and I miss them deeply now when we see each other so rarely.
           </p>
           <p className="text-lg leading-relaxed">
             Life brings also new friendships and I am one of those who really loves meeting new people, hearing new stories and sharing mine. I am so grateful for all the friends I met in my new life, once I moved to Zurich.
           </p>
           <p className="text-lg leading-relaxed">
-            In the gallery below, you can see some of my dearest friends and I am sure the images are not complete - there are so many more who hate beign pictured.
+            In the gallery below, you can see some of my dearest friends and I am sure the images are not complete - there are so many more who hate being pictured.
           </p>
           <div className="relative my-8">
             <div className="relative w-full h-[260px] md:h-[370px] flex items-center justify-center overflow-hidden">
-              <img
+              <Image
                 src={images[currentIndex].src}
                 alt={images[currentIndex].alt}
+                width={600}
+                height={400}
                 className="max-h-[220px] md:max-h-[340px] w-auto max-w-full object-contain rounded-lg shadow"
+                priority
               />
             </div>
             <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
