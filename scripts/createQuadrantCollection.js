@@ -13,7 +13,7 @@ const qdrant = new QdrantClient({
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: process.env.OpenAI.apiKey,
   });
 
 async function createCollection() {

@@ -15,13 +15,15 @@ const __dirname = dirname(__filename);
 
 // Initialize OpenAI API
 const openai = new OpenAI({
-  apiKey: "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",
+ 
+ apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Initialize Qdrant client
 const qdrant = new QdrantClient({
   url: "https://f94c63a9-ccd0-4900-9a50-8f4a609592b3.eu-central-1-0.aws.cloud.qdrant.io", // Replace with your Qdrant Cloud URL if using the cloud
-  apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.fsdb4vJwSkPICaeob_bMBpwAoxGaApEpoyQED0CZXJU", // Add this to your .env if using Qdrant Cloud
+  apiKey: process.env.QDRANT_API_KEY, // Add this to your .env if using Qdrant Cloud
+  checkCompatibility: false,
 });
 
 
