@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function FriendsPage() {
   const images = [
-    ...Array.from({ length: 20 }, (_, i) => ({
+    ...Array.from({ length: 26 }, (_, i) => ({
       src: `/images/friends/Foto${i + 1}.jpg`,
       alt: `Friends ${i + 1}`,
     })),
