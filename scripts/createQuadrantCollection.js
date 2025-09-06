@@ -11,10 +11,12 @@ const qdrant = new QdrantClient({
   apiKey: process.env.QDRANT_API_KEY, // Add this to your .env if using Qdrant Cloud
 });
 
+
 // Initialize OpenAI client
 const openai = new OpenAI({
-    apiKey: process.env.OpenAI.apiKey,
+    apiKey: process.env.OPENAI_API_KEY,
   });
+
 
 async function createCollection() {
   try {

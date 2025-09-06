@@ -8,6 +8,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 import { v4 as uuidv4 } from "uuid"; // Import the UUID library
 
 dotenv.config(); // Load environment variables from .env
+console.log("OpenAI apiKey after config:", process.env.OPENAI_API_KEY);
 
 // Define __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -15,8 +16,7 @@ const __dirname = dirname(__filename);
 
 // Initialize OpenAI API
 const openai = new OpenAI({
- 
- apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 // Initialize Qdrant client
