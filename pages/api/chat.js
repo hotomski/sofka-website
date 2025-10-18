@@ -60,8 +60,10 @@ export default async function handler(req, res) {
         await qdrant.getCollections();
         return res.status(200).json({ status: "Qdrant is awake!" });
       } catch (error) {
-        return res.status(500).json({ error: "Failed to wake up Qdrant." });
-      }
+        // Use the error variable
+    console.error("Qdrant keep-alive error:", error);
+    return res.status(500).json({ error: "Failed to wake up Qdrant." });
+  }
     }
 
   if (req.method === "POST") {
