@@ -54,6 +54,16 @@ export default async function handler(req, res) {
   
     userQuestionCounts[userKey]++;
 
+    if (req.method === "GET") {
+      try {
+        // Ping Qdrant to keep the cluster awake
+        await qdrant.getCollections();
+        return res.status(200).json({ status: "Qdrant is awake!" });
+      } catch (error) {
+        return res.status(500).json({ error: "Failed to wake up Qdrant." });
+      }
+    }
+
   if (req.method === "POST") {
     const { question } = req.body;
 
