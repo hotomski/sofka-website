@@ -14,7 +14,7 @@ export default function FamilyPage() {
   ];
 
   const newFamilyImages = [
-    { src: "/images/family/porodica_oct25.jpg", alt: "New Family 1" }
+    { src: "/images/family/porodica_oct25.jpg", alt: "New Family 1" },
     { src: "/images/family/porodica1.jpg", alt: "New Family 2" },
     { src: "/images/family/porodica2.jpg", alt: "New Family 3" },
     { src: "/images/family/porodica3.jpg", alt: "New Family 4" },
