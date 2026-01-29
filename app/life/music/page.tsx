@@ -116,7 +116,7 @@ export default function MusicPage() {
  <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
     <div style={{ position: "relative", width: "100%", paddingBottom: "56.25%", height: 0 }} className="rounded-lg overflow-hidden">
       <iframe
-        src="https://www.youtube.com/watch?v=zrstXJhF-wY"
+        src="https://www.youtube.com/embed/zrstXJhF-wY"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
