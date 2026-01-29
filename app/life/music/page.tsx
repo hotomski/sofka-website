@@ -111,6 +111,21 @@ export default function MusicPage() {
       ></iframe>
     </div>
   </div>
+
+ {/* Video 5 - YouTube Embed */}
+ <div className="p-4 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
+    <div style={{ position: "relative", width: "100%", paddingBottom: "56.25%", height: 0 }} className="rounded-lg overflow-hidden">
+      <iframe
+        src="https://www.youtube.com/watch?v=zrstXJhF-wY"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        className="rounded-lg"
+      ></iframe>
+    </div>
+  </div>
+  
 </div>
 
         <Chatbot />
