@@ -20,14 +20,14 @@ const qdrant = new QdrantClient({
 });
 
 // Initialize Elasticsearch client
-const esClient = new ElasticsearchClient({
+/*const esClient = new ElasticsearchClient({
   node: process.env.ELASTICSEARCH_URL || "https://07df9a32f08e40eb9412b55933b695fa.westeurope.azure.elastic-cloud.com:443",
 
   auth: {
     username: process.env.ELASTICSEARCH_USERNAME || "elastic", // Replace with your username
     password: process.env.ELASTICSEARCH_PASSWORD || "Nt9ArBl2ltdnZce7DfeeCUUW", // Replace with your password
   },
-});
+});*/
 
 export default async function handler(req, res) {
 
@@ -106,7 +106,7 @@ export default async function handler(req, res) {
 
       const answer = response.choices[0].message.content.trim();
       console.log("Generated answer:", answer);
- // Log the question and answer to Elasticsearch
+/* // Log the question and answer to Elasticsearch
  await esClient.index({
   index: "chat-logs", // Name of the Elasticsearch index
   document: {
@@ -114,14 +114,14 @@ export default async function handler(req, res) {
     question: question, // User's question
     answer: answer, // Chatbot's response
   },
-});
+});*/
 
 // Send the response back to the frontend
       res.status(200).json({ answer });
     } catch (error) {
       console.error("Error:", error);
 
-      // Log the error to Elasticsearch
+     /* // Log the error to Elasticsearch
       await esClient.index({
         index: "chat-logs",
         document: {
@@ -129,7 +129,7 @@ export default async function handler(req, res) {
           question: question,
           error: error.message || "Unknown error",
         },
-      });
+      }); */
 
       res.status(500).json({ error: "Failed to generate a response." });
     }
