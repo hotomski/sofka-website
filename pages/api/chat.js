@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import { QdrantClient } from "@qdrant/js-client-rest";
-import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
+//import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
 
 import dotenv from "dotenv";
 dotenv.config();
