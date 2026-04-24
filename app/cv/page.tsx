@@ -54,7 +54,7 @@ export default function CV() {
         {/* CV Images */}
         <div className="mt-12 flex flex-col gap-8 items-center w-full">
           <Image
-            src="/images/cv/cv_page1.jpg"
+            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-0.jpg"
             alt="CV Page 1"
             width={800}
             height={1131}
@@ -63,13 +63,20 @@ export default function CV() {
             priority
           />
           <Image
-            src="/images/cv/cv_page2.jpg"
+            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-1.jpg"
             alt="CV Page 2"
             width={800}
             height={1131}
             quality={100}
             className="rounded-lg shadow-lg w-full md:w-auto"
-            priority
+          />
+          <Image
+            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-2.jpg"
+            alt="CV Page 3"
+            width={800}
+            height={1131}
+            quality={100}
+            className="rounded-lg shadow-lg w-full md:w-auto"
           />
         </div>
 
