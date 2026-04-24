@@ -69,7 +69,7 @@ export default function WorkPage() {
 
           {/* Subsection 4: Independent Work & Founding */}
           <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Independent Work &amp; Founding — 2025</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-4">Independent Work &amp; Founding</h2>
             <p className="text-sm md:text-lg leading-relaxed">
               Stepping away from a corporate PM role turned out to be one of the most productive periods of my career. I built things from scratch — technically, creatively, and commercially.
             </p>

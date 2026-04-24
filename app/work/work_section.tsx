@@ -8,7 +8,7 @@ export default function Work() {
         I’m a Product Manager with a PhD in Computer Science and over a decade of international experience across a range of industries — including power grid management, publishing, fire safety, and academic research. I’ve worked on cloud-based SaaS platforms, CRM systems, industrial SCADA applications, and AI/NLP research projects.
         </p>
         <p className="mt-4">
-        At Siemens, I led the global digital transformation of fire safety systems. Earlier in my career, I conducted AI-driven research in requirements engineering during my PhD at the University of Zurich, collaborating closely with industry partners. I’ve also held product and engineering roles at Schneider Electric, Siemens DMS, and Swiss Post’s ASMIQ AG, blending deep technical insight with strategic product leadership. <Link href="/work" className="custom-link hover:opacity-70 transition">More...</Link>
+        At Siemens, I led the global digital transformation of fire safety systems. Earlier in my career, I conducted AI-driven research in requirements engineering during my PhD at the University of Zurich, collaborating closely with industry partners. I’ve also held product and engineering roles at Schneider Electric, Siemens DMS, and Swiss Post’s ASMIQ AG, blending deep technical insight with strategic product leadership. Most recently, I built a RAG-based AI system for a 40,000+ user platform, and founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="custom-link hover:opacity-70 transition">StrongME</a> — taking both from zero to live. <Link href="/work" className="custom-link hover:opacity-70 transition">More...</Link>
         </p>
       </div>
     );
