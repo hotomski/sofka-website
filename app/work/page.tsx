@@ -67,11 +67,20 @@ export default function WorkPage() {
             </p>
           </div>
 
-          {/* Subsection 4: Sabbatical */}
+          {/* Subsection 4: Independent Work & Founding */}
           <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Sabbatical 2025</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-4">Independent Work &amp; Founding — 2025</h2>
             <p className="text-sm md:text-lg leading-relaxed">
-              I hit pause on my usual PM life (meetings, roadmaps, coffee... repeat) and dove headfirst into the world of shiny new tech! 🌊✨ I decided it was time to do something different, like building this very website you&apos;re looking at 😎 Armed with Gen AI powers, I sprinkled some OpenAI magic ✨ into this site to create the chat feature you&apos;re chatting with (or about to). Then, I added a vector database to keep things zippy and wallet-friendly in case y&apos;all bring in a tsunami of questions 🌪️📉. And because I love to <del>spy</del> observe things like a data detective 🕵️‍♀️, I plugged in Elasticsearch and Kibana to track what’s being asked the most (yes, I saw your question 👀 and no, I won’t judge).
+              Stepping away from a corporate PM role turned out to be one of the most productive periods of my career. I built things from scratch — technically, creatively, and commercially.
+            </p>
+            <p className="text-sm md:text-lg leading-relaxed mt-4">
+              I architected and delivered a RAG-based conversational AI system for International School Community — a platform with 40,000+ users and 55,000+ comments — handling everything from embeddings and semantic retrieval to LLM response generation at scale. I also built the AI chat feature on this very website, adapting the same architecture for a smaller dataset.
+            </p>
+            <p className="text-sm md:text-lg leading-relaxed mt-4">
+              At the same time, I founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:opacity-70 transition">StrongME</a> — a movement and wellness concept — and took it from idea to live business: brand, website, class design, customer acquisition, and delivery. All of it.
+            </p>
+            <p className="text-sm md:text-lg leading-relaxed mt-4 font-medium">
+              Turns out &quot;taking time off&quot; looks a lot like shipping two AI products and founding a company.
             </p>
           </div>
         </div>
