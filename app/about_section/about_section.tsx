@@ -7,7 +7,7 @@ export default function About() {
         AI enthusiast and founder of{" "}
         <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="font-semibold underline hover:opacity-70 transition">StrongME</a>
         , a movement and wellness concept I built from scratch.
-        And a mum of two — easily the most complex, most rewarding product I have ever shipped. 🥷
+        And a mum of two — easily the most complex, most rewarding product I have ever shipped.
       </p>
     </div>
   );
