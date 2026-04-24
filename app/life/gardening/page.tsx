@@ -87,6 +87,7 @@ export default function GardeningPage() {
         <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
         <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
         <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
+        <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
       </nav>
     </div>
   );

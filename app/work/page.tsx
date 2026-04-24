@@ -90,6 +90,7 @@ export default function WorkPage() {
           </Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
+          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
         </nav>
       </div>
     </div>

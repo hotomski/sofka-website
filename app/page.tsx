@@ -55,7 +55,7 @@ export default function Home() {
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          
+          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
 
           {/* Chatbot Icon */}
           <div className="ml-4">
