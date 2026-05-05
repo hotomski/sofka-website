@@ -20,8 +20,8 @@ export default function Home() {
         {/* Profile Image */}
         <Image
           src="/profile.jpg"
-          width={300}
-          height={300}
+          width={380}
+          height={380}
           alt="Your Name"
           className="rounded-full border-4 border-green-900 shadow-lg transition-transform transform hover:scale-105"
         />
