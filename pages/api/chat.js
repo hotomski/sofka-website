@@ -102,7 +102,7 @@ export default async function handler(req, res) {
               $ai_trace_id: randomUUID(),
               $ai_provider: "openai",
               $ai_model: "gpt-4",
-              $ai_input: messages,
+              $ai_input: [{ role: "user", content: question }],
               $ai_output_choices: [{ role: "assistant", content: answer }],
               $ai_input_tokens: response.usage?.prompt_tokens,
               $ai_output_tokens: response.usage?.completion_tokens,
