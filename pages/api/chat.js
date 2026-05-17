@@ -72,13 +72,15 @@ export default async function handler(req, res) {
         .map((match) => match.payload.content)
         .join("\n");
 
+      const messages = [
+        { role: "system", content: `You are a helpful assistant. Answer questions based on the following content:\n\n${relevantContent}` },
+        { role: "user", content: question },
+      ];
+
       const startTime = Date.now();
       const response = await openai.chat.completions.create({
         model: "gpt-4",
-        messages: [
-          { role: "system", content: "You are a helpful assistant." },
-          { role: "user", content: `Answer the following question based on the content below:\n\n${relevantContent}\n\nQuestion: ${question}` },
-        ],
+        messages,
         max_tokens: 500,
         temperature: 0.7,
       });
@@ -100,10 +102,7 @@ export default async function handler(req, res) {
               $ai_trace_id: randomUUID(),
               $ai_provider: "openai",
               $ai_model: "gpt-4",
-              $ai_input: [
-                { role: "system", content: "You are a helpful assistant." },
-                { role: "user", content: `Answer the following question based on the content below:\n\n${relevantContent}\n\nQuestion: ${question}` },
-              ],
+              $ai_input: messages,
               $ai_output_choices: [{ role: "assistant", content: answer }],
               $ai_input_tokens: response.usage?.prompt_tokens,
               $ai_output_tokens: response.usage?.completion_tokens,
