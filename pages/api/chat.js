@@ -109,6 +109,8 @@ export default async function handler(req, res) {
               $ai_output_tokens: response.usage?.completion_tokens,
               $ai_latency: latency,
               $ai_stop_reason: response.choices[0].finish_reason,
+              question: question,
+              answer: answer,
             },
           });
           await ph.shutdown();
