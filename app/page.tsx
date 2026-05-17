@@ -7,6 +7,7 @@ import Work from "./work/work_section";
 import Life from "./life/life_section";
 import Chatbot from "../components/chatbot";
 import './style/link_style.css';
+import posthog from "posthog-js";
 
 export default function Home() {
   return (
@@ -55,7 +56,7 @@ export default function Home() {
           <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
           <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
           <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
+          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "home" })} className="hover:opacity-70 transition text-black">StrongME</a>
 
           {/* Chatbot Icon */}
           <div className="ml-4">

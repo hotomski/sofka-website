@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import posthog from "posthog-js";
 
 type Message = {
   role: "user" | "bot";
@@ -58,6 +59,9 @@ export default function Chatbot() {
   const sendMessage = async () => {
     if (!input.trim()) return;
 
+    const messageLength = input.trim().length;
+    posthog.capture("chatbot_message_sent", { message_length: messageLength });
+
     const userMessage: Message = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
@@ -74,7 +78,8 @@ export default function Chatbot() {
       const data = await response.json();
       const botMessage: Message = { role: "bot", content: data.answer };
       setMessages((prev) => [...prev, botMessage]);
-    } catch {
+    } catch (err) {
+      posthog.captureException(err);
       setMessages((prev) => [
         ...prev,
         {
@@ -109,7 +114,7 @@ export default function Chatbot() {
           </div>
           <div
             className="cursor-pointer hover:opacity-90"
-            onClick={() => setIsChatOpen(true)}
+            onClick={() => { setIsChatOpen(true); posthog.capture("chatbot_opened"); }}
           >
             <img
               src="/chatbotIcon.png"
@@ -132,7 +137,7 @@ export default function Chatbot() {
             <h3 className="text-lg font-bold">Ask Sofija</h3>
             <button
               className="text-gray-500 hover:text-gray-700"
-              onClick={() => setIsChatOpen(false)}
+              onClick={() => { setIsChatOpen(false); posthog.capture("chatbot_closed"); }}
             >
               ✖
             </button>

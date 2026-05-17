@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Chatbot from "../../components/chatbot";
+import posthog from "posthog-js";
 import { 
   FaUsers,         // Friends (bigger group)
   FaLeaf, 
@@ -43,6 +46,7 @@ export default function LifePage() {
           {/* Family (smaller group) */}
           <Link
             href="/life/family"
+            onClick={() => posthog.capture("life_category_clicked", { category: "family" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaUserFriends className="text-green-700 text-4xl md:text-5xl mb-4" />
@@ -52,6 +56,7 @@ export default function LifePage() {
           {/* Music */}
           <Link
             href="/life/music"
+            onClick={() => posthog.capture("life_category_clicked", { category: "music" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaMusic className="text-green-700 text-4xl md:text-5xl mb-4" />
@@ -61,6 +66,7 @@ export default function LifePage() {
           {/* Photography */}
           <Link
             href="/life/photography"
+            onClick={() => posthog.capture("life_category_clicked", { category: "photography" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaCamera className="text-green-700 text-4xl md:text-5xl mb-4" />
@@ -70,6 +76,7 @@ export default function LifePage() {
           {/* Gardening */}
           <Link
             href="/life/gardening"
+            onClick={() => posthog.capture("life_category_clicked", { category: "gardening" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaLeaf className="text-green-700 text-4xl md:text-5xl mb-4" />
@@ -79,6 +86,7 @@ export default function LifePage() {
           {/* Friends (bigger group) */}
           <Link
             href="/life/friends"
+            onClick={() => posthog.capture("life_category_clicked", { category: "friends" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaUsers className="text-green-700 text-4xl md:text-5xl mb-4" />
@@ -88,6 +96,7 @@ export default function LifePage() {
           {/* Sport (HIIT / running) */}
           <Link
             href="/life/sport"
+            onClick={() => posthog.capture("life_category_clicked", { category: "sport" })}
             className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 w-full h-[180px] md:w-[450px] md:h-[350px] flex flex-col items-center justify-center transition-transform transform hover:scale-105"
           >
             <FaRunning className="text-green-700 text-4xl md:text-5xl mb-4" />

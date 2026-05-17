@@ -1,10 +1,13 @@
 import OpenAI from "openai";
 import { QdrantClient } from "@qdrant/js-client-rest";
-//import { Client as ElasticsearchClient } from "@elastic/elasticsearch";
-
+import { PostHog } from "posthog-node";
 import dotenv from "dotenv";
 dotenv.config();
 console.log("new key:"+ process.env.OPENAI_API_KEY);
+
+const posthog = new PostHog(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN, {
+  host: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://eu.i.posthog.com",
+});
 
 const userQuestionCounts = {};
 
@@ -106,6 +109,26 @@ export default async function handler(req, res) {
 
       const answer = response.choices[0].message.content.trim();
       console.log("Generated answer:", answer);
+
+      // Log to PostHog LLM Analytics
+      posthog.capture({
+        distinctId: ip,
+        event: "$ai_generation",
+        properties: {
+          $ai_provider: "openai",
+          $ai_model: "gpt-4",
+          $ai_input: [
+            { role: "system", content: "You are a helpful assistant." },
+            { role: "user", content: `Answer the following question based on the content below:\n\n${relevantContent}\n\nQuestion: ${question}` },
+          ],
+          $ai_output_choices: [{ message: { role: "assistant", content: answer } }],
+          $ai_input_tokens: response.usage?.prompt_tokens,
+          $ai_output_tokens: response.usage?.completion_tokens,
+          question,
+        },
+      });
+      await posthog.flush();
+
 /* // Log the question and answer to Elasticsearch
  await esClient.index({
   index: "chat-logs", // Name of the Elasticsearch index

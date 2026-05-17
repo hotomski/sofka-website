@@ -4,6 +4,7 @@ import { FaDownload } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import Chatbot from "../../components/chatbot";
+import posthog from "posthog-js";
 
 export default function CV() {
   return (
@@ -42,6 +43,7 @@ export default function CV() {
           <a
             href="/images/cv/cv.pdf"
             download
+            onClick={() => posthog.capture("cv_downloaded")}
             className="inline-flex items-center justify-center px-6 py-3 text-white rounded-lg shadow-md transition-transform transform hover:scale-105"
             style={{ backgroundColor: "#317773" }}
             title="Download CV"

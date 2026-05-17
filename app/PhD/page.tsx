@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import '../style/link_style.css';
 import Chatbot from "../../components/chatbot";
+import posthog from "posthog-js";
 
 export default function PhDPage() {
   return (
@@ -97,6 +100,7 @@ export default function PhDPage() {
             <div className="my-6 flex justify-center">
               <video
                 controls
+                onPlay={() => posthog.capture("phd_video_played")}
                 className="max-w-full rounded-lg shadow-md"
               >
                 <source src="/videos/PhD/GuideGen.mp4" type="video/mp4" />

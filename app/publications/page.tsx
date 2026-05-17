@@ -3,6 +3,7 @@
 import Link from "next/link";
 import '../style/link_style.css';
 import Chatbot from "../../components/chatbot";
+import posthog from "posthog-js";
 
 export default function PublicationsPage() {
   return (
@@ -29,6 +30,7 @@ export default function PublicationsPage() {
           <a
             href="https://dblp.org/pid/191/1101.html"
             target="_blank"
+            onClick={() => posthog.capture("dblp_profile_clicked")}
             className="custom-link hover:opacity-70 transition"
           >
             DBLP profile
