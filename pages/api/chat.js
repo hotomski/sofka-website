@@ -105,15 +105,13 @@ export default async function handler(req, res) {
                 { role: "system", content: "You are a helpful assistant." },
                 { role: "user", content: `Answer the following question based on the content below:\n\n${relevantContent}\n\nQuestion: ${question}` },
               ],
-              $ai_output_choices: [{ message: { role: "assistant", content: answer } }],
+              $ai_output_choices: [{ role: "assistant", content: answer }],
               $ai_input_tokens: response.usage?.prompt_tokens,
               $ai_output_tokens: response.usage?.completion_tokens,
               $ai_latency: latency,
-              $ai_http_status: 200,
-              question,
+              $ai_stop_reason: response.choices[0].finish_reason,
             },
           });
-          await ph.flush();
           await ph.shutdown();
         }
       } catch (phErr) {
