@@ -87,10 +87,9 @@ export default async function handler(req, res) {
       const answer = response.choices[0].message.content.trim();
       console.log("Generated answer:", answer);
 
-      // Send response immediately — PostHog logging happens after
-      res.status(200).json({ answer });
-
-      // Non-blocking PostHog LLM trace
+      // PostHog LLM trace — must complete before res.json() in serverless
+      const phToken = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
+      console.log("PostHog token present:", !!phToken);
       try {
         const ph = getPosthogClient();
         if (ph) {
@@ -113,10 +112,15 @@ export default async function handler(req, res) {
             },
           });
           await ph.shutdown();
+          console.log("PostHog event flushed successfully");
+        } else {
+          console.log("PostHog client is null — token missing");
         }
       } catch (phErr) {
         console.error("PostHog logging error:", phErr);
       }
+
+      res.status(200).json({ answer });
 
     } catch (error) {
       console.error("Error:", error);
