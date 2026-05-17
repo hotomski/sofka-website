@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { PostHog } from "posthog-node";
+import { randomUUID } from "crypto";
 import dotenv from "dotenv";
 dotenv.config();
 console.log("new key:"+ process.env.OPENAI_API_KEY);
@@ -118,6 +119,7 @@ export default async function handler(req, res) {
             distinctId: ip,
             event: "$ai_generation",
             properties: {
+              $ai_trace_id: randomUUID(),
               $ai_provider: "openai",
               $ai_model: "gpt-4",
               $ai_input: [
@@ -127,6 +129,7 @@ export default async function handler(req, res) {
               $ai_output_choices: [{ message: { role: "assistant", content: answer } }],
               $ai_input_tokens: response.usage?.prompt_tokens,
               $ai_output_tokens: response.usage?.completion_tokens,
+              $ai_http_status: 200,
               question,
             },
           });
