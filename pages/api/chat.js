@@ -1,22 +1,21 @@
 import OpenAI from "openai";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { PostHog } from "posthog-node";
-import { randomUUID } from "crypto";
+import { withTracing } from "@posthog/ai/openai";
 import dotenv from "dotenv";
 dotenv.config();
 console.log("new key:"+ process.env.OPENAI_API_KEY);
 
 const posthogToken = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
-const posthog = posthogToken
+const posthogClient = posthogToken
   ? new PostHog(posthogToken, { host: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://eu.i.posthog.com" })
   : null;
 
 const userQuestionCounts = {};
 
-// Initialize OpenAI API
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Initialize OpenAI API — wrapped with PostHog tracing when available
+const baseOpenAI = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = posthogClient ? withTracing(baseOpenAI, posthogClient) : baseOpenAI;
 
 /// Initialize Qdrant client
 const qdrant = new QdrantClient({
@@ -112,31 +111,9 @@ export default async function handler(req, res) {
       const answer = response.choices[0].message.content.trim();
       console.log("Generated answer:", answer);
 
-      // Log to PostHog LLM Analytics (non-blocking)
-      if (posthog) {
-        try {
-          posthog.capture({
-            distinctId: ip,
-            event: "$ai_generation",
-            properties: {
-              $ai_trace_id: randomUUID(),
-              $ai_provider: "openai",
-              $ai_model: "gpt-4",
-              $ai_input: [
-                { role: "system", content: "You are a helpful assistant." },
-                { role: "user", content: `Answer the following question based on the content below:\n\n${relevantContent}\n\nQuestion: ${question}` },
-              ],
-              $ai_output_choices: [{ message: { role: "assistant", content: answer } }],
-              $ai_input_tokens: response.usage?.prompt_tokens,
-              $ai_output_tokens: response.usage?.completion_tokens,
-              $ai_http_status: 200,
-              question,
-            },
-          });
-          await posthog.flush();
-        } catch (phErr) {
-          console.error("PostHog logging error:", phErr);
-        }
+      // PostHog LLM tracing is handled automatically by withTracing above
+      if (posthogClient) {
+        try { await posthogClient.flush(); } catch (phErr) { console.error("PostHog flush error:", phErr); }
       }
 
 /* // Log the question and answer to Elasticsearch
