@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         .join("\n");
 
       const messages = [
-        { role: "system", content: `You are a helpful assistant. Answer questions based on the following content:\n\n${relevantContent}` },
+        { role: "system", content: `You are Allma, Sofija Hotomski's personal AI assistant on her website hotomski.com. Answer questions about Sofija based on the following content:\n\n${relevantContent}` },
         { role: "user", content: question },
       ];
 

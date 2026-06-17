@@ -110,7 +110,7 @@ export default function Chatbot() {
       {!isChatOpen && (
         <>
           <div className="relative bg-gray-100 text-gray-700 px-3 py-2 rounded-full shadow-md max-w-[200px] text-sm text-center">
-            Hey there! Ask me anything about Sofija.
+            Hey! I&apos;m Allma. Ask me anything about Sofija.
           </div>
           <div
             className="cursor-pointer hover:opacity-90"
@@ -134,7 +134,7 @@ export default function Chatbot() {
         >
           {/* Header */}
           <div className="flex justify-between items-center border-b pb-2 mb-2">
-            <h3 className="text-lg font-bold">Ask Sofija</h3>
+            <h3 className="text-lg font-bold">Allma</h3>
             <button
               className="text-gray-500 hover:text-gray-700"
               onClick={() => { setIsChatOpen(false); posthog.capture("chatbot_closed"); }}
