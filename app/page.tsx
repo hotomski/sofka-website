@@ -37,7 +37,7 @@ export default function Home() {
           >
             Allma
           </button>
-          {" "}to find out (almost) everything about me.
+          {" "}to find out<br />almost everything about me.
         </p>
 
         {/* Grid for sections */}
