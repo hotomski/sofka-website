@@ -30,7 +30,7 @@ export default function Home() {
         {/* Welcome Message */}
         <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Hey, I&apos;m Sofija! 👋</h1>
         <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl md:whitespace-nowrap">
-  Here you can find (almost) everything about me — browse through the sections or simply ask Allma at the bottom of the page.
+  Here you can find (almost) everything about me. Browse through the sections or simply ask Allma at the bottom of the page.
 </p>
 
         {/* Grid for sections */}
