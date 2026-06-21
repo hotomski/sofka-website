@@ -29,9 +29,16 @@ export default function Home() {
 
         {/* Welcome Message */}
         <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Hey, I&apos;m Sofija! 👋</h1>
-        <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl md:whitespace-nowrap">
-  Here you can find (almost) everything about me. Browse through the sections or simply ask Allma at the bottom of the page.
-</p>
+        <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl">
+          Feel free to browse through the sections or ask{" "}
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("open-allma"))}
+            className="font-semibold underline hover:opacity-70 transition cursor-pointer bg-transparent border-none p-0"
+          >
+            Allma
+          </button>
+          {" "}to find out (almost) everything about me.
+        </p>
 
         {/* Grid for sections */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">

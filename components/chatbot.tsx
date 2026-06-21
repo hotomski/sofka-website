@@ -28,6 +28,16 @@ export default function Chatbot() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Open chatbot when triggered externally (e.g. clicking "Allma" link)
+  useEffect(() => {
+    const handleOpen = () => {
+      setIsChatOpen(true);
+      posthog.capture("chatbot_opened");
+    };
+    window.addEventListener("open-allma", handleOpen);
+    return () => window.removeEventListener("open-allma", handleOpen);
+  }, []);
+
   // Animated dots while loading
   useEffect(() => {
     if (!isLoading) {
