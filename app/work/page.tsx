@@ -75,13 +75,16 @@ export default function WorkPage() {
               Stepping away from a corporate PM role turned out to be one of the most productive periods of my career. I built things from scratch — technically, creatively, and commercially.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
-              I architected and delivered a RAG-based conversational AI system for International School Community — a platform with 40,000+ users and 55,000+ comments — handling everything from embeddings and semantic retrieval to LLM response generation at scale. I also built the AI chat feature on this very website, adapting the same architecture for a smaller dataset.
+              I co-founded <a href="https://holomost.com" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holomost_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloMost</a> and led product for <a href="https://holopal.app" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holopal_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloPal</a> — an AI-powered platform that lets people preserve their knowledge through journaling, verify a holographic AI model of themselves, and share it at scale. Built on a multi-modal AI stack: RAG, semantic search, voice synthesis, and avatar animation, with a freemium SaaS model ($9.99/month).
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
-              At the same time, I founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">StrongME</a> — a movement and wellness concept — and took it from idea to live business: brand, website, class design, customer acquisition, and delivery. All of it.
+              I also architected and delivered a RAG-based conversational AI system for International School Community — a platform with 40,000+ users and 55,000+ comments — handling everything from embeddings and semantic retrieval to LLM response generation at scale. I built the AI chat feature on this very website using the same architecture.
+            </p>
+            <p className="text-sm md:text-lg leading-relaxed mt-4">
+              And I founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">StrongME</a> — a movement and wellness concept — taking it from idea to live business: brand, website, class design, customer acquisition, and delivery.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4 font-medium">
-              Turns out &quot;taking time off&quot; looks a lot like shipping two AI products and founding a company.
+              Turns out &quot;taking time off&quot; looks a lot like shipping three products and founding two companies.
             </p>
           </div>
         </div>
