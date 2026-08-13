@@ -3,7 +3,6 @@ import OpenAI from "openai";
 import dotenv from "dotenv";
 
 dotenv.config();
-console.log("qdrant apiKey after config:", process.env.QDRANT_API_KEY);
 
 // Initialize Qdrant client
 const qdrant = new QdrantClient({
