@@ -1,40 +1,22 @@
 "use client";
 
 import { FaDownload } from "react-icons/fa";
-import Link from "next/link";
 import Image from "next/image";
-import Chatbot from "../../components/chatbot";
 import posthog from "posthog-js";
 
 export default function CV() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}
+      className="pb-4"
     >
       
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+      <div className="flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
 
-         {/* Top Navigation - left-centered, pill-shaped background */}
-         <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-          <div className="flex flex-wrap gap-4 items-center">
-            <Link href="/" className="hover:opacity-70 transition text-black font-semibold flex items-center">Home</Link>
-            <Link href="/work" className="hover:opacity-70 transition text-black font-semibold flex items-center">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link
-              href="/cv"
-              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
-              aria-current="page"
-            >
-              CV
-          </Link>
-        </div>
-      </nav>
         {/* Page Title */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">
+        <h1 className="display text-4xl md:text-6xl mt-8 tracking-tight text-center">
           Curriculum Vitae
         </h1>
-        <p className="mt-6 text-lg md:text-xl leading-relaxed text-black text-center max-w-2xl">
+        <p className="mt-6 text-lg md:text-xl leading-relaxed text-center max-w-2xl">
           View my professional experience, achievements, and academic journey below.
         </p>
 
@@ -44,8 +26,8 @@ export default function CV() {
             href="/images/cv/cv.pdf"
             download
             onClick={() => posthog.capture("cv_downloaded")}
-            className="inline-flex items-center justify-center px-6 py-3 text-white rounded-lg shadow-md transition-transform transform hover:scale-105"
-            style={{ backgroundColor: "#317773" }}
+            className="inline-flex items-center justify-center px-6 py-3 text-white rounded-lg shadow-md card-hover"
+            style={{ backgroundColor: "var(--spot)" }}
             title="Download CV"
           >
             <FaDownload className="w-5 h-5 mr-2" />
@@ -53,52 +35,23 @@ export default function CV() {
           </a>
         </div>
 
-        {/* CV Images */}
+        {/* CV Images, one per page of cv.pdf */}
         <div className="mt-12 flex flex-col gap-8 items-center w-full">
-          <Image
-            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-0.jpg"
-            alt="CV Page 1"
-            width={800}
-            height={1131}
-            quality={100}
-            className="rounded-lg shadow-lg w-full md:w-auto"
-            priority
-          />
-          <Image
-            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-1.jpg"
-            alt="CV Page 2"
-            width={800}
-            height={1131}
-            quality={100}
-            className="rounded-lg shadow-lg w-full md:w-auto"
-          />
-          <Image
-            src="/images/cv/CVEnterpreneurship/My Resume Enterpreneurship included-images-2.jpg"
-            alt="CV Page 3"
-            width={800}
-            height={1131}
-            quality={100}
-            className="rounded-lg shadow-lg w-full md:w-auto"
-          />
+          {[1, 2, 3, 4].map((page) => (
+            <Image
+              key={page}
+              src={`/images/cv/page-${page}.jpg`}
+              alt={`CV page ${page}`}
+              width={800}
+              height={1132}
+              quality={100}
+              className="rounded-lg shadow-lg w-full md:w-auto"
+              priority={page === 1}
+            />
+          ))}
         </div>
 
-        {/* Chatbot */}
-        <Chatbot />
-
         {/* Navigation Links */}
-        <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
-          <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-          <Link
-            href="/cv"
-            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
-            aria-current="page"
-          >
-            CV
-          </Link>
-          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-        </nav>
       </div>
     </div>
   );

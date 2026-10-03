@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import '../../style/link_style.css';
-import Chatbot from "../../../components/chatbot";
 import { useState } from "react";
 
 export default function SportPage() {
@@ -25,26 +23,15 @@ export default function SportPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-4 md:px-8 py-8 md:py-16 font-sans"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}>
+    <div className="w-full flex flex-col items-center px-4 md:px-8 py-10 md:py-14 font-sans">
 
-      {/* Top Navigation */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-        </div>
-      </nav>
-
-      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">The sport side of the story</h1>
+      <h1 className="display text-6xl mt-8 mb-12 tracking-tight text-center">The sport side of the story</h1>
 
       <div className="mt-8 flex flex-col gap-8 max-w-5xl w-full">
 
         {/* Chapter 1: The origin */}
-        <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200">
-          <h2 className="text-2xl font-bold mb-4">Sport saved me. Then I had to learn to listen to my body.</h2>
+        <div className="p-8 card">
+          <h2 className="display-sm text-2xl font-bold mb-4">Sport saved me. Then I had to learn to listen to my body.</h2>
           <p className="text-lg leading-relaxed">
             A few years ago, burnout and a series of health issues brought me to my knees. I was depleted — physically,
             mentally, emotionally. The one thing that kept me going, that made me feel human again, was sport.
@@ -68,10 +55,10 @@ export default function SportPage() {
                 priority
               />
             </div>
-            <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Prev
             </button>
-            <button onClick={handleNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handleNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Next
             </button>
           </div>
@@ -84,8 +71,8 @@ export default function SportPage() {
         </div>
 
         {/* Chapter 2: StrongME */}
-        <div className="p-8 bg-white bg-opacity-95 rounded-lg shadow-lg border border-gray-200">
-          <h2 className="text-2xl font-bold mb-4">So I built something new.</h2>
+        <div className="p-8 card">
+          <h2 className="display-sm text-2xl font-bold mb-4">So I built something new.</h2>
           <p className="text-lg leading-relaxed">
             I wanted movement that rebuilds rather than depletes. Something joyful, not punishing. Structured enough
             to build real strength, but with space for breath, play, and recovery. A program that treats the body
@@ -100,11 +87,11 @@ export default function SportPage() {
           </p>
 
           {/* StrongME call-out card */}
-          <div className="mt-8 p-6 rounded-xl border text-black flex flex-col gap-6"
+          <div className="mt-8 p-6 rounded-xl border flex flex-col gap-6"
             style={{ backgroundColor: "#f6f2ec", borderColor: "#ddd4ca" }}>
             <div>
               <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6d675f" }}>My concept</p>
-              <h3 className="text-3xl font-extrabold tracking-tight mb-3" style={{ color: "#111111" }}>Strong body. Strong mind. Strong ME.</h3>
+              <h3 className="text-3xl tracking-tight mb-3" style={{ color: "#111111" }}>Strong body. Strong mind. Strong ME.</h3>
               <p className="leading-relaxed" style={{ color: "#5f5a55" }}>
                 StrongME is a group movement class that combines rhythmic cardio, functional strength, dance,
                 and a guided mindfulness close. It is designed for people navigating burnout, life transitions,
@@ -144,17 +131,9 @@ export default function SportPage() {
           </div>
         </div>
 
-        <Chatbot />
       </div>
 
       {/* Bottom Navigation */}
-      <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium mb-8">
-        <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-        <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-        <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-        <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-        <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-      </nav>
     </div>
   );
 }

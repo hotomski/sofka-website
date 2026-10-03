@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import "../../style/link_style.css";
-import Chatbot from "../../../components/chatbot";
 import { useState } from "react";
 
 export default function FriendsPage() {
@@ -34,46 +32,15 @@ export default function FriendsPage() {
 
   return (
     <div
-      className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-4 md:px-8 py-8 md:py-16 font-sans"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}
+      className="w-full flex flex-col items-center px-4 md:px-8 py-10 md:py-14 font-sans"
     >
-      {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link
-            href="/"
-            className="hover:opacity-70 transition text-black font-semibold"
-          >
-            Home
-          </Link>
-          <Link
-            href="/work"
-            className="hover:opacity-70 transition text-black font-semibold"
-          >
-            Work
-          </Link>
-          <Link
-            href="/life"
-            className="hover:opacity-70 transition text-black font-semibold"
-          >
-            Life
-          </Link>
-          <Link
-            href="/cv"
-            className="hover:opacity-70 transition text-black font-semibold"
-          >
-            CV
-          </Link>
-        </div>
-      </nav>
-
-      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">
+      <h1 className="display text-6xl mt-8 mb-12 tracking-tight text-center">
         My friends
       </h1>
 
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
-        <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
-          <h2 className="text-xl font-semibold mb-3">
+        <div className="p-8 card flex-1 min-w-[300px]">
+          <h2 className="display-sm text-xl font-semibold mb-3">
             Friendships teach us who we are
           </h2>
 
@@ -117,7 +84,7 @@ export default function FriendsPage() {
             <button
               onClick={handlePrev}
               aria-label="Previous image"
-              className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm"
+              className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm"
             >
               Prev
             </button>
@@ -125,32 +92,16 @@ export default function FriendsPage() {
             <button
               onClick={handleNext}
               aria-label="Next image"
-              className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm"
+              className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm"
             >
               Next
             </button>
           </div>
         </div>
 
-        <Chatbot />
       </div>
 
       {/* Bottom Navigation - simple, no background */}
-      <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium mb-8">
-        <Link href="/" className="hover:opacity-70 transition text-black">
-          Home
-        </Link>
-        <Link href="/work" className="hover:opacity-70 transition text-black">
-          Work
-        </Link>
-        <Link href="/life" className="hover:opacity-70 transition text-black">
-          Life
-        </Link>
-        <Link href="/cv" className="hover:opacity-70 transition text-black">
-          CV
-        </Link>
-        <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-      </nav>
     </div>
   );
 }

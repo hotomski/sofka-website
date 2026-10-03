@@ -1,62 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import Chatbot from "../../components/chatbot";
 import posthog from "posthog-js";
 
 export default function WorkPage() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}
+      className="pb-4"
     >
 
     
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
-
-          {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link
-              href="/work"
-              className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
-              aria-current="page"
-            >
-              Work
-          </Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-        </div>
-      </nav>
+      <div className="flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
 
         {/* Page Title */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mt-8 tracking-tight text-center">Work Experience</h1>
-        <p className="mt-6 text-base md:text-xl leading-relaxed text-black text-center max-w-2xl">
+        <h1 className="display text-4xl md:text-6xl mt-8 tracking-tight text-center">Work Experience</h1>
+        <p className="mt-6 text-base md:text-xl leading-relaxed text-center max-w-2xl">
           Explore my professional journey and achievements.
         </p>
 
         {/* Subsections */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Subsection 1: Industry */}
-          <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Work in industry</h2>
+          <div className="p-6 md:p-8 card card-hover">
+            <h2 className="display-sm text-xl md:text-2xl font-bold mb-4">Work in industry</h2>
             <p className="text-sm md:text-lg leading-relaxed">
               From global enterprises like Siemens and Schneider Electric to the fast-paced world of a medium-sized startup like ASMIQ, and then back to Siemens again — my career has been a journey across diverse tech ecosystems. Along the way, I’ve built up a unique blend of deep technical know-how, product strategy chops, and cross-functional leadership skills. These roles didn’t just shape the professional I am today — they taught me how to speak both “engineer” and “executive,” drive innovation, and keep my sense of humor intact during deadline week. If you&apos;re curious about what I’ve been up to in the serious grown-up world of industry, check out my CV <Link href="/cv" onClick={() => posthog.capture("work_deep_link_clicked", { destination: "cv" })} className="custom-link hover:opacity-70 transition">here</Link>.
             </p>
           </div>
 
           {/* Subsection 2: PhD */}
-          <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">PhD</h2>
+          <div className="p-6 md:p-8 card card-hover">
+            <h2 className="display-sm text-xl md:text-2xl font-bold mb-4">PhD</h2>
             <p className="text-sm md:text-lg leading-relaxed">
               I earned my PhD in Computer Science at the University of Zurich, in the Requirements Engineering Research Group (RERG), under the brilliant guidance of Prof. Martin Glinz (truly the best — and not just because he’s probably reading this). I kicked off my PhD journey in April 2015, fueled by curiosity (and coffee ☕). I successfully defended my dissertation on March 4, 2019, a date forever etched in my memory — along with the nervous sweats that came with it. <Link href="/PhD" onClick={() => posthog.capture("work_deep_link_clicked", { destination: "phd" })} className="custom-link hover:opacity-70 transition">Here</Link> you can read more about my PhD work and <Link href="/publications" onClick={() => posthog.capture("work_deep_link_clicked", { destination: "publications" })} className="custom-link hover:opacity-70 transition">here</Link> you can check out the full list of publications.
             </p>
           </div>
 
           {/* Subsection 3: Publications */}
-          <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Publications</h2>
+          <div className="p-6 md:p-8 card card-hover">
+            <h2 className="display-sm text-xl md:text-2xl font-bold mb-4">Publications</h2>
             <p className="text-sm md:text-lg leading-relaxed">
               During my PhD, I published four conference papers, one workshop paper, and one journal article. My research was featured at top international venues, including the Requirements Engineering Conference (RE) and the International Conference on Software Engineering (ICSE).
             </p>
@@ -69,19 +51,19 @@ export default function WorkPage() {
           </div>
 
           {/* Subsection 4: Independent Work & Founding */}
-          <div className="p-6 md:p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
-            <h2 className="text-xl md:text-2xl font-bold mb-4">Independent Work &amp; Founding</h2>
+          <div className="p-6 md:p-8 card card-hover">
+            <h2 className="display-sm text-xl md:text-2xl font-bold mb-4">Independent Work &amp; Founding</h2>
             <p className="text-sm md:text-lg leading-relaxed">
               Stepping away from a corporate PM role turned out to be one of the most productive periods of my career. I built things from scratch — technically, creatively, and commercially.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
-              I co-founded <a href="https://holomost.com" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holomost_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloMost</a> and led product for <a href="https://holopal.app" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holopal_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloPal</a> — an AI-powered platform that lets people preserve their knowledge through journaling, verify a holographic AI model of themselves, and share it at scale. Built on a multi-modal AI stack: RAG, semantic search, voice synthesis, and avatar animation, with a freemium SaaS model ($9.99/month).
+              I co-founded <a href="https://holomost.com" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holomost_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloMost</a> and led product for <a href="https://holopal.app" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("holopal_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">HoloPal</a> — an AI-powered platform that lets people preserve their knowledge through journaling, verify a holographic AI model of themselves, and share it at scale. Built on a multi-modal AI stack: RAG, semantic search, voice synthesis, and avatar animation, with a freemium SaaS model (24.90 CHF/month).
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
               I also architected and delivered a RAG-based conversational AI system for International School Community — a platform with 40,000+ users and 55,000+ comments — handling everything from embeddings and semantic retrieval to LLM response generation at scale. I built the AI chat feature on this very website using the same architecture.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4">
-              And I founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">StrongME</a> — a movement and wellness concept — taking it from idea to live business: brand, website, class design, customer acquisition, and delivery.
+              And I founded <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "work" })} className="font-semibold underline hover:opacity-70 transition">StrongME</a> — a fitness and mindfulness concept — taking it from idea to live business: brand, website, class design, customer acquisition, and delivery.
             </p>
             <p className="text-sm md:text-lg leading-relaxed mt-4 font-medium">
               Turns out &quot;taking time off&quot; looks a lot like shipping three products and founding two companies.
@@ -89,22 +71,7 @@ export default function WorkPage() {
           </div>
         </div>
 
-        <Chatbot />
-
         {/* Navigation Links */}
-        <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-sm md:text-lg font-medium">
-          <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link
-            href="/work"
-            className="font-semibold text-white bg-green-700 px-3 py-1 rounded transition"
-            aria-current="page"
-          >
-            Work
-          </Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture("strongme_link_clicked", { source: "work" })} className="hover:opacity-70 transition text-black">StrongME</a>
-        </nav>
       </div>
     </div>
   );

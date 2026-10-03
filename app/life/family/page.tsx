@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import '../../style/link_style.css';
-import Chatbot from "../../../components/chatbot";
 import { useState } from "react";
 
 export default function FamilyPage() {
@@ -53,25 +51,14 @@ export default function FamilyPage() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-cover bg-center bg-fixed text-black flex flex-col items-center justify-center px-4 md:px-8 py-8 md:py-16 font-sans"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}>
+    <div className="w-full flex flex-col items-center px-4 md:px-8 py-10 md:py-14 font-sans">
       
-      {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-        <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>  
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-        </div>
-      </nav>
-
-      <h1 className="text-6xl font-extrabold mt-8 mb-12 tracking-tight text-center">My family story</h1>
+      <h1 className="display text-6xl mt-8 mb-12 tracking-tight text-center">My family story</h1>
 
       <div className="mt-8 flex flex-wrap gap-8 justify-center max-w-5xl">
-        <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
+        <div className="p-8 card flex-1 min-w-[300px]">
 
-          <h2 className="text-xl font-semibold mb-3">Where I Come From — and Where We Are Now</h2>
+          <h2 className="display-sm text-xl font-semibold mb-3">Where I Come From — and Where We Are Now</h2>
           <p className="text-lg leading-relaxed">
             I come from a family where thinking deeply and caring deeply went hand in hand.
           </p>
@@ -93,17 +80,17 @@ export default function FamilyPage() {
                 className="max-h-[220px] md:max-h-[340px] w-auto max-w-full object-contain rounded-lg shadow"
               />
             </div>
-            <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handlePrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Prev
             </button>
-            <button onClick={handleNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handleNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Next
             </button>
           </div>
 
-          <h2 className="text-xl font-semibold mb-3">And Then Came Us</h2>
+          <h2 className="display-sm text-xl font-semibold mb-3">And Then Came Us</h2>
           <p className="text-lg leading-relaxed">
-            I met my husband at work back in 2012 (I think! My memory’s better with people than with dates 😊). We started dating in December 2013, moved to Switzerland, and got married in May 2015—ten years ago now. He’s been my biggest support ever since: a calm, steady presence, full of positive energy, and my personal anchor when life gets stormy.
+            I met my husband at work back in 2012 (I think! My memory’s better with people than with dates 😊). We started dating in December 2013, moved to Switzerland, and got married in May 2015. He’s been my biggest support ever since: a calm, steady presence, full of positive energy, and my personal anchor when life gets stormy.
           </p>
           <p className="text-lg leading-relaxed">
             Although I’m the one who plays the ukulele and guitar, he’s the true music curator at home. He’s introduced me to some of my all-time favorite artists, and our home always has a soundtrack—thanks to his impeccable taste and very enthusiastic playlist management.
@@ -126,26 +113,18 @@ export default function FamilyPage() {
                 className="max-h-[220px] md:max-h-[340px] w-auto max-w-full object-contain rounded-lg shadow"
               />
             </div>
-            <button onClick={handleNewFamilyPrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handleNewFamilyPrev} className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Prev
             </button>
-            <button onClick={handleNewFamilyNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-full shadow-md hover:bg-gray-700 text-xs md:px-4 md:py-2 md:text-sm">
+            <button onClick={handleNewFamilyNext} className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-white bg-[var(--deep)] px-2 py-1 rounded-full shadow-md hover:opacity-80 text-xs md:px-4 md:py-2 md:text-sm">
               Next
             </button>
           </div>
         </div>
 
-        <Chatbot />
       </div>
 
       {/* Bottom Navigation - simple, no background */}
-      <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium mb-8">
-        <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-        <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-        <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-        <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-        <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-      </nav>
     </div>
   );
 }

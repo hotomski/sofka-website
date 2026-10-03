@@ -1,31 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import '../style/link_style.css';
-import Chatbot from "../../components/chatbot";
 import posthog from "posthog-js";
 
 export default function PublicationsPage() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}
+      className="pb-4"
     >
 
-      {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-        </div>
-      </nav>
-
-      <div className="text-black flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
+      <div className="flex flex-col items-center justify-center px-4 md:px-8 py-16 font-sans max-w-5xl mx-auto">
         {/* Page Title */}
-        <h1 className="text-6xl font-extrabold mt-8 tracking-tight">Publications</h1>
-        <p className="mt-6 text-xl leading-relaxed text-black text-center max-w-2xl">
+        <h1 className="display text-6xl mt-8 tracking-tight">Publications</h1>
+        <p className="mt-6 text-xl leading-relaxed text-center max-w-2xl">
           Below is a list of my publications. You can also find the full list on my{" "}
           <a
             href="https://dblp.org/pid/191/1101.html"
@@ -89,26 +76,17 @@ export default function PublicationsPage() {
           ].map((pub, index) => (
             <div
               key={index}
-              className="p-6 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200"
+              className="p-6 card"
             >
-              <h2 className="text-lg font-bold">{pub.title}</h2>
-              <p className="text-sm text-gray-700 mt-2">
+              <h2 className="display-sm text-lg font-bold">{pub.title}</h2>
+              <p className="text-sm text-[var(--ink-2)] mt-2">
                 <em>{pub.venue}</em>
               </p>
             </div>
           ))}
         </div>
 
-        <Chatbot />
-
         {/* Navigation Links */}
-        <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
-          <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-        </nav>
       </div>
     </div>
   );

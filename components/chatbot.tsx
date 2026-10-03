@@ -30,8 +30,10 @@ export default function Chatbot() {
 
   // Open chatbot when triggered externally (e.g. clicking "Allma" link)
   useEffect(() => {
-    const handleOpen = () => {
+    const handleOpen = (event: Event) => {
       setIsChatOpen(true);
+      const question = (event as CustomEvent<{ question?: string }>).detail?.question;
+      if (question) setInput(question);
       posthog.capture("chatbot_opened");
     };
     window.addEventListener("open-allma", handleOpen);
@@ -119,7 +121,10 @@ export default function Chatbot() {
       {/* Closed Chat - Show Icon */}
       {!isChatOpen && (
         <>
-          <div className="relative bg-gray-100 text-gray-700 px-3 py-2 rounded-full shadow-md max-w-[200px] text-sm text-center">
+          <div
+            className="relative px-4 py-2 rounded-full shadow-md max-w-[210px] text-sm text-center"
+            style={{ background: "var(--card)", color: "var(--ink-2)", border: "1px solid var(--line)" }}
+          >
             Hey! I&apos;m Allma. Ask me anything about Sofija.
           </div>
           <div
@@ -129,7 +134,8 @@ export default function Chatbot() {
             <img
               src="/chatbotIcon.png"
               alt="Chat Icon"
-              className="w-16 h-16 rounded-full object-cover"
+              className="w-16 h-16 rounded-full object-cover shadow-md"
+              style={{ border: "1px solid var(--line)" }}
             />
           </div>
         </>
@@ -138,15 +144,15 @@ export default function Chatbot() {
       {/* Open Chat */}
       {isChatOpen && (
         <div
-          className={`bg-white shadow-lg rounded-lg p-4 ${
-            isMobile ? "w-full max-w-md" : "w-80"
-          }`}
+          className={`shadow-xl rounded-2xl p-4 ${isMobile ? "w-full max-w-md" : "w-80"}`}
+          style={{ background: "var(--card)", border: "1px solid var(--line)" }}
         >
           {/* Header */}
-          <div className="flex justify-between items-center border-b pb-2 mb-2">
-            <h3 className="text-lg font-bold">Allma</h3>
+          <div className="flex justify-between items-center pb-2 mb-2" style={{ borderBottom: "1px solid var(--line)" }}>
+            <h3 className="display-sm text-lg">Allma</h3>
             <button
-              className="text-gray-500 hover:text-gray-700"
+              className="transition hover:opacity-70"
+              style={{ color: "var(--ink-3)" }}
               onClick={() => { setIsChatOpen(false); posthog.capture("chatbot_closed"); }}
             >
               ✖
@@ -166,11 +172,12 @@ export default function Chatbot() {
                 }`}
               >
                 <div
-                  className={`px-4 py-2 rounded-2xl max-w-[70%] whitespace-pre-wrap ${
+                  className="px-4 py-2 rounded-2xl max-w-[80%] whitespace-pre-wrap text-sm"
+                  style={
                     msg.role === "user"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-black"
-                  }`}
+                      ? { background: "var(--spot)", color: "#fff" }
+                      : { background: "var(--paper-2)", color: "var(--ink)" }
+                  }
                 >
                   {msg.content}
                 </div>
@@ -180,7 +187,10 @@ export default function Chatbot() {
             {/* Animated "typing" message */}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="px-4 py-2 rounded-2xl max-w-[70%] bg-gray-200 text-black">
+                <div
+                  className="px-4 py-2 rounded-2xl max-w-[80%] text-sm"
+                  style={{ background: "var(--paper-2)", color: "var(--ink-2)" }}
+                >
                   Generating response{dots}
                 </div>
               </div>
@@ -196,24 +206,24 @@ export default function Chatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleInputKeyDown}
-              className="flex-1 border rounded-lg px-3 py-2 text-sm"
+              className="flex-1 rounded-xl px-3 py-2 text-sm"
+              style={{ border: "1px solid var(--line)", background: "var(--paper)", color: "var(--ink)" }}
               placeholder="Ask me anything..."
               disabled={isLoading}
             />
             <button
               onClick={sendMessage}
-              className={`ml-2 px-4 py-2 rounded-lg transition ${
-                isLoading
-                  ? "bg-gray-400 text-white cursor-not-allowed"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+              className={`ml-2 px-4 py-2 rounded-xl text-sm text-white transition ${
+                isLoading ? "cursor-not-allowed opacity-60" : "hover:opacity-90"
               }`}
+              style={{ background: "var(--spot)" }}
               disabled={isLoading}
             >
               {isLoading ? "..." : "Send"}
             </button>
           </div>
           {/* Suggestions */}
-          <div className="text-xs text-gray-500 mt-1 text-center">
+          <div className="text-xs mt-2 text-center" style={{ color: "var(--ink-3)" }}>
             <span className="font-semibold">Examples:</span> Summarize her working experience &middot; What does she like?
           </div>
         </div>

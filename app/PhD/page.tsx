@@ -1,37 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import '../style/link_style.css';
-import Chatbot from "../../components/chatbot";
 import posthog from "posthog-js";
 
 export default function PhDPage() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('/background_flower.jpg')" }}
+      className="pb-4"
     >
 
-      {/* Top Navigation - left-centered, pill-shaped background */}
-      <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-start items-center gap-4 md:gap-8 py-3 px-4 bg-white bg-opacity-80 rounded-xl shadow-md mb-8">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Link href="/" className="hover:opacity-70 transition text-black font-semibold">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black font-semibold">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black font-semibold">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black font-semibold">CV</Link>
-        </div>
-      </nav>
-
-      <div className="text-black flex flex-col items-center justify-center px-8 py-16 font-sans max-w-5xl mx-auto">
+      <div className="flex flex-col items-center justify-center px-8 py-16 font-sans max-w-5xl mx-auto">
         {/* Page Title */}
-        <h1 className="text-6xl font-extrabold mt-8 tracking-tight">PhD project</h1>
+        <h1 className="display text-6xl mt-8 tracking-tight">PhD project</h1>
 
         {/* Subsections */}
         <div className="mt-8 flex flex-wrap gap-8 justify-center">
-          <div className="p-8 bg-white bg-opacity-90 rounded-lg shadow-lg border border-gray-200 flex-1 min-w-[300px] transition-transform transform">
+          <div className="p-8 card flex-1 min-w-[300px]">
 
             {/* Paragraph: GuideGen Overview */}
-            <h2 className="text-xl font-semibold mb-3">GuideGen overview</h2>
+            <h2 className="display-sm text-xl font-semibold mb-3">GuideGen overview</h2>
             <p className="text-lg leading-relaxed">
               During my PhD, I tackled a common but often overlooked challenge in software development: keeping requirements and acceptance tests aligned as the system evolves. And yes—requirements always evolve!
             </p>
@@ -55,7 +42,7 @@ export default function PhDPage() {
             </p>
 
             {/* Paragraph: Method */}
-            <h2 className="text-xl font-semibold mb-3 mt-8">Method</h2>
+            <h2 className="display-sm text-xl font-semibold mb-3 mt-8">Method</h2>
             <p className="text-lg leading-relaxed">
               The goal of the approach is to identify all relevant changes in requirements that require the associated acceptance tests to be adapted and to generate guidance in natural language on how to adapt the acceptance tests based on these changes.
             </p>
@@ -88,7 +75,7 @@ export default function PhDPage() {
             </ol>
 
             {/* Paragraph: The GuideGen Tool */}
-            <h2 className="text-xl font-semibold mb-3 mt-8">The GuideGen Tool</h2>
+            <h2 className="display-sm text-xl font-semibold mb-3 mt-8">The GuideGen Tool</h2>
             <p className="text-lg leading-relaxed">
               GuideGen is a web application, written in Java using Servlet and JSP technology. It is deployed on Apache Tomcat. On the one hand, GuideGen supports requirements engineers in maintaining the requirements of a system and in communicating all changes of requirements to testers, developers and other interested parties on-time and with almost no effort. On the other hand, GuideGen supports testers, who maintain acceptance test documents, by providing them with guidance on how to modify impacted tests so that they stay aligned with the modified requirements. In addition, by flagging all non-aligned acceptance tests, any stakeholder can easily see which acceptance tests are currently mis-aligned with their corresponding requirement - be it that tests do not exist yet or that they have not been updated after changes in the requirements.
             </p>
@@ -109,17 +96,9 @@ export default function PhDPage() {
             </div>
           </div>
 
-          <Chatbot />
         </div>
 
         {/* Navigation Links */}
-        <nav className="mt-12 w-full flex flex-wrap justify-center gap-6 text-lg font-medium">
-          <Link href="/" className="hover:opacity-70 transition text-black">Home</Link>
-          <Link href="/work" className="hover:opacity-70 transition text-black">Work</Link>
-          <Link href="/life" className="hover:opacity-70 transition text-black">Life</Link>
-          <Link href="/cv" className="hover:opacity-70 transition text-black">CV</Link>
-          <a href="https://www.strongme.pro" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition text-black">StrongME</a>
-        </nav>
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
+/* Inline links inside the long-form sections. */
 .custom-link {
-    color: #ff6347; /* Custom color for the link */
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .custom-link:hover {
-    color: #ff4500; /* Custom color for the link on hover */
-  }
+  color: var(--spot);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.custom-link:hover {
+  color: var(--spot-hover);
+}

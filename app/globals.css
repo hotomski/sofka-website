@@ -2,20 +2,179 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --------------------------------------------------------------
+   Palette sampled from the portrait on the home page: the grey
+   studio wall, the pink tee, and the autumn prints behind it.
+   Every colour is a token, so dark mode is one swap below.
+---------------------------------------------------------------*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #faf6f1;
+  --paper-2: #f3eae1;
+  --card: #ffffff;
+  --ink: #1b1a19;
+  --ink-2: #57514b;
+  --ink-3: #8c8278;
+  --line: #e7dbcf;
+  --spot: #bf5a3d;
+  --spot-hover: #a44a30;
+  --spot-soft: #f1d9cc;
+  --deep: #27282a;
+  --deep-ink: #f6efe8;
+  --deep-line: #43454a;
+  --shadow: 0 1px 2px rgba(27, 26, 25, 0.04), 0 12px 32px -18px rgba(27, 26, 25, 0.28);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #17181a;
+    --paper-2: #1d1f22;
+    --card: #202225;
+    --ink: #f3ede7;
+    --ink-2: #b4aba3;
+    --ink-3: #897f77;
+    --line: #32353a;
+    --spot: #e08567;
+    --spot-hover: #ee9b7d;
+    --spot-soft: #39281f;
+    --deep: #0f1012;
+    --deep-ink: #f6efe8;
+    --deep-line: #2c2e33;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--spot-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--spot);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer components {
+  /* Layout ---------------------------------------------------- */
+  .wrap {
+    @apply mx-auto w-full max-w-[1140px] px-5 sm:px-8;
+  }
+  .wrap-narrow {
+    @apply mx-auto w-full max-w-[760px] px-5 sm:px-8;
+  }
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Type ------------------------------------------------------ */
+  .display {
+    font-family: var(--font-display), "Iowan Old Style", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+  .display-sm {
+    font-family: var(--font-display), "Iowan Old Style", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    line-height: 1.16;
+  }
+  .eyebrow {
+    @apply text-[0.72rem] font-medium uppercase tracking-[0.18em];
+    color: var(--ink-3);
+  }
+  .lede {
+    @apply text-lg md:text-xl leading-relaxed;
+    color: var(--ink-2);
+  }
+  .prose-ink p {
+    color: var(--ink-2);
+    line-height: 1.75;
+  }
+  .prose-ink p + p {
+    @apply mt-4;
+  }
+
+  /* Links and buttons ----------------------------------------- */
+  .ink-link {
+    color: var(--spot);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+  .ink-link:hover {
+    color: var(--spot-hover);
+  }
+  .arrow-link {
+    @apply inline-flex items-center gap-2 text-sm font-medium;
+    color: var(--spot);
+  }
+  .arrow-link svg {
+    transition: transform 0.2s ease;
+  }
+  .arrow-link:hover svg {
+    transform: translateX(4px);
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium transition;
+    background: var(--spot);
+    color: #fff;
+  }
+  .btn:hover {
+    background: var(--spot-hover);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium transition;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink-3);
+    transform: translateY(-1px);
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-4 py-2 text-sm transition;
+    border: 1px solid var(--line);
+    color: var(--ink-2);
+    background: var(--card);
+  }
+  .chip:hover {
+    border-color: var(--spot);
+    color: var(--spot);
+  }
+
+  /* Surfaces -------------------------------------------------- */
+  .card {
+    @apply rounded-3xl p-7 md:p-9 transition;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    border-color: var(--spot-soft);
+  }
+  .hairline {
+    border-top: 1px solid var(--line);
+  }
+
+  /* The portrait frame: an arch, like a print in a frame ------- */
+  .arch {
+    border-radius: 190px 190px 28px 28px;
+    overflow: hidden;
+  }
 }
