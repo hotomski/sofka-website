@@ -9,7 +9,10 @@ import posthog from "posthog-js";
 //
 // The UI on top only renders state and calls ask().
 
-export type DigitalSelfState = "idle" | "thinking" | "speaking";
+// answering  — Claude is writing it, nothing to show yet
+// preparing   — the words exist; her voice and face are being made ready
+// speaking    — sound is actually coming out
+export type DigitalSelfState = "idle" | "answering" | "preparing" | "speaking";
 
 export type Turn = { role: "user" | "assistant"; content: string };
 
@@ -200,27 +203,31 @@ export function useDigitalSelf(didImageSrc: string) {
           });
           if (talk.ok) {
             setAnimationSpent(true);
-            setState("speaking");
             try { localStorage.setItem("ds_anim_used", "1"); } catch {}
             posthog.capture("digital_self_animated_answer");
 
-            // Cross-fade to the video only once it is really playing frames.
-            // Revealing it when the POST returns fades to an empty element,
-            // and on a connection that never decodes a frame it would stay
-            // empty for the whole answer.
+            // The face appears and the voice starts in the same moment: both
+            // ride the same D-ID stream, so the only job here is to not reveal
+            // the video before it carries frames, and to call it "speaking"
+            // at that same instant rather than when the POST returned.
             const video = videoRef.current;
-            const reveal = () => setAnimating(true);
+            let revealed = false;
+            const reveal = () => {
+              if (revealed) return;
+              revealed = true;
+              setAnimating(true);
+              setState("speaking");
+            };
             if (video) {
-              if (video.readyState >= 2 && !video.paused) reveal();
+              if (video.readyState >= 2 && video.videoWidth > 0) reveal();
               else {
-                video.addEventListener("timeupdate", reveal, { once: true });
+                video.addEventListener("loadeddata", reveal, { once: true });
                 video.addEventListener("playing", reveal, { once: true });
-                setTimeout(() => {
-                  video.removeEventListener("timeupdate", reveal);
-                  video.removeEventListener("playing", reveal);
-                }, 6000);
+                video.addEventListener("timeupdate", reveal, { once: true });
               }
             }
+            // Whatever the element reports, D-ID is sending the answer now.
+            setTimeout(reveal, 2500);
 
             const ms = Math.max(4000, text.length * 75);
             setTimeout(() => {
@@ -242,10 +249,9 @@ export function useDigitalSelf(didImageSrc: string) {
     if (el) {
       el.src = `data:audio/mpeg;base64,${audio}`;
       el.onended = () => setState("idle");
-      setState("speaking");
       setAudioBlocked(false);
       el.play()
-        .then(() => setAudioBlocked(false))
+        .then(() => { setAudioBlocked(false); setState("speaking"); })
         .catch(() => setAudioBlocked(true)); // the UI offers a tap to hear it
     } else {
       setState("idle");
@@ -258,7 +264,7 @@ export function useDigitalSelf(didImageSrc: string) {
     busyRef.current = true;
     setError(null);
     setTurns((t) => [...t, { role: "user", content: question }, { role: "assistant", content: "" }]);
-    setState("thinking");
+    setState("answering");
     posthog.capture("digital_self_question", { length: question.length });
 
     // Animation takes a few seconds to negotiate, so it starts alongside the
@@ -290,14 +296,8 @@ export function useDigitalSelf(didImageSrc: string) {
           const line = chunk.split("\n").find((l) => l.startsWith("data: "));
           if (!line) continue;
           const payload = JSON.parse(line.slice(6));
-          if (payload.text) {
-            answer += payload.text;
-            setTurns((t) => {
-              const next = [...t];
-              next[next.length - 1] = { role: "assistant", content: answer };
-              return next;
-            });
-          }
+          // Accumulated, deliberately not rendered yet.
+          if (payload.text) answer += payload.text;
           if (payload.error) throw new Error(payload.error);
         }
       }
@@ -308,6 +308,15 @@ export function useDigitalSelf(didImageSrc: string) {
       busyRef.current = false;
       return;
     }
+
+    // The words are ready. Show them to anyone who asks for them, and say
+    // honestly that the voice and the face are what we are waiting for now.
+    setTurns((t) => {
+      const next = [...t];
+      next[next.length - 1] = { role: "assistant", content: answer };
+      return next;
+    });
+    setState("preparing");
 
     const animated = await streamPromise;
     await speak(answer, animated);
@@ -333,12 +342,16 @@ export function useDigitalSelf(didImageSrc: string) {
   }, [closeStream]);
 
   const last = turns.length ? turns[turns.length - 1] : null;
+  const answerText = last?.role === "assistant" ? last.content : "";
 
   return {
     state,
     turns,
     question: turns.length >= 2 ? turns[turns.length - 2].content : null,
-    answer: last?.role === "assistant" ? last.content : "",
+    answer: answerText,
+    // The words exist and can be shown, even though she has not started
+    // speaking them yet.
+    answerReady: Boolean(answerText) && state !== "answering",
     animating,
     animationSpent,
     error,

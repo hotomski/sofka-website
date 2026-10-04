@@ -27,10 +27,11 @@ export default function DigitalSelf() {
   const [mobile, setMobile] = useState(false);
   const [input, setInput] = useState("");
   const [pending, setPending] = useState<string | null>(null);
+  const [showText, setShowText] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const ds = useDigitalSelf(PORTRAIT);
-  const { state, question, answer, animating, animationSpent, error, audioBlocked, ask, reset, retryAudio } = ds;
+  const { state, question, answer, answerReady, animating, animationSpent, error, audioBlocked, ask, reset, retryAudio } = ds;
 
   useEffect(() => {
     const check = () => setMobile(window.innerWidth < 768);
@@ -86,8 +87,9 @@ export default function DigitalSelf() {
 
   const busy = state !== "idle";
   const statusLine =
-    state === "thinking" ? "thinking…"
-    : state === "speaking" ? "speaking…"
+    state === "answering" ? "Preparing answer…"
+    : state === "preparing" ? "Preparing speech and animation…"
+    : state === "speaking" ? "Speaking…"
     : answer ? "Ask me something else" : "Ask me anything about my work or my life";
 
   const launcher = (
@@ -179,13 +181,13 @@ export default function DigitalSelf() {
                       </span>
                     </button>
                   )}
-                  {state === "thinking" && (
+                  {(state === "answering" || state === "preparing") && (
                     <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4">
                       <span
                         className="rounded-full px-3 py-1 text-xs"
                         style={{ background: "color-mix(in srgb, var(--deep) 72%, transparent)", color: "var(--deep-ink)" }}
                       >
-                        thinking…
+                        {state === "answering" ? "Preparing answer…" : "Preparing speech and animation…"}
                       </span>
                     </div>
                   )}
@@ -196,20 +198,36 @@ export default function DigitalSelf() {
             {/* Her answer is spoken. The text underneath is a caption, not a
                 transcript: no history, no scrollback, and it only appears once
                 there is something to caption. */}
-            {(question || answer) && (
+            {question && (
               <div className="px-5 pt-6 sm:px-7">
-                {question && (
-                  <p className="text-xs uppercase tracking-[0.14em]" style={{ color: "var(--ink-3)" }}>
-                    {question}
-                  </p>
-                )}
-                {answer && (
-                  <p
-                    className="mt-2 max-h-[30vh] overflow-y-auto text-[0.95rem] leading-relaxed"
-                    style={{ color: "var(--ink-2)" }}
+                <p className="text-xs uppercase tracking-[0.14em]" style={{ color: "var(--ink-3)" }}>
+                  {question}
+                </p>
+                {answerReady && !showText && (
+                  <button
+                    onClick={() => { setShowText(true); posthog.capture("digital_self_show_text"); }}
+                    className="mt-3 text-sm underline underline-offset-4 transition hover:opacity-70"
+                    style={{ color: "var(--spot)" }}
                   >
-                    {answer}
-                  </p>
+                    Show text
+                  </button>
+                )}
+                {answerReady && showText && (
+                  <>
+                    <p
+                      className="mt-2 max-h-[30vh] overflow-y-auto text-[0.95rem] leading-relaxed"
+                      style={{ color: "var(--ink-2)" }}
+                    >
+                      {answer}
+                    </p>
+                    <button
+                      onClick={() => setShowText(false)}
+                      className="mt-2 text-xs underline underline-offset-4 transition hover:opacity-70"
+                      style={{ color: "var(--ink-3)" }}
+                    >
+                      Hide text
+                    </button>
+                  </>
                 )}
               </div>
             )}

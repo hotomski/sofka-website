@@ -126,16 +126,23 @@ export default async function handler(req, res) {
       if (hasUsedAnimation(req)) return res.status(403).json({ error: "animation_used" });
       if (animationsLeftToday() <= 0) return res.status(403).json({ error: "animation_busy" });
 
+      // D-ID's own /audios upload hands back an s3:// URL, not https. An
+      // earlier version of this check demanded http(s) and so rejected D-ID's
+      // own audio, which failed every talk with "bad_audio" and silently left
+      // every visitor on the voice-only fallback.
       const audioUrl = String(req.body.audioUrl || "");
-      if (!/^https?:\/\//.test(audioUrl)) return res.status(400).json({ error: "bad_audio" });
+      if (!/^(https?|s3):\/\//.test(audioUrl)) return res.status(400).json({ error: "bad_audio" });
 
       const r = await fetch(`${DID_API}/talks/streams/${streamId}`, {
         method: "POST",
         headers: jsonHeaders(),
+        // Same shape HoloPal has in production: fluent + pad_audio 0 for a
+        // clean start, and the lively driver for natural head movement.
         body: JSON.stringify({
-          script: { type: "audio", audio_url: audioUrl },
-          config: { stitch: true },
           session_id: sessionId,
+          script: { type: "audio", audio_url: audioUrl },
+          config: { stitch: true, fluent: true, pad_audio: 0 },
+          driver_url: "bank://lively",
         }),
       });
       const data = await r.json().catch(() => ({}));
