@@ -8,9 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "index-content": "node scripts/indexContent.js"
+    "index-content": "node scripts/indexContent.js",
+    "build-corpus": "node scripts/build-corpus.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
     "@elastic/elasticsearch": "^9.0.1",
     "@pinecone-database/pinecone": "^5.1.1",
     "@posthog/ai": "^7.4.3",

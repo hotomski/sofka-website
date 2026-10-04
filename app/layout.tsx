@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SiteHeader from "../components/site-header";
 import SiteFooter from "../components/site-footer";
-import Chatbot from "../components/chatbot";
+import DigitalSelf from "../components/digital-self";
 
 // Both self-hosted from Fontshare, one variable file each.
 // Satoshi carries the text, Sentient the headings.
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     template: "%s — Sofija Hotomski",
   },
   description:
-    "Product professional with over a decade of experience, a PhD in computer science, founder of StrongME and co-founder of HoloMost.",
+    "Product professional with over a decade of experience, a PhD in computer science, founder of StrongME and HoloMost.",
   openGraph: {
     title: "Sofija Hotomski",
     description:
-      "Product professional with over a decade of experience, a PhD in computer science, founder of StrongME and co-founder of HoloMost.",
+      "Product professional with over a decade of experience, a PhD in computer science, founder of StrongME and HoloMost.",
     url: "https://hotomski.com",
     siteName: "Sofija Hotomski",
     images: [{ url: "/images/profile/og.jpg", width: 1200, height: 628 }],
@@ -55,7 +55,7 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
-        <Chatbot />
+        <DigitalSelf />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import posthog from "posthog-js";
-import { askAllma } from "./site-header";
+import { openDigitalSelf } from "./site-header";
 
 const ELSEWHERE = [
   { href: "https://www.strongme.pro", label: "StrongME", event: "strongme_link_clicked" },
@@ -38,8 +38,8 @@ export default function SiteFooter() {
             Product, AI and a PhD in computer science. Based in Zurich, at my best at the top of a
             mountain.
           </p>
-          <button onClick={() => askAllma("footer")} className="btn-ghost mt-5 !py-2 !text-sm">
-            Ask Allma anything
+          <button onClick={() => openDigitalSelf("footer")} className="btn-ghost mt-5 !py-2 !text-sm">
+            Ask my digital self
           </button>
         </div>
 
@@ -96,7 +96,7 @@ export default function SiteFooter() {
       <div className="hairline">
         <div className="wrap flex flex-wrap items-center justify-between gap-2 py-6 text-xs" style={{ color: "var(--ink-3)" }}>
           <span>© {new Date().getFullYear()} Sofija Hotomski</span>
-          <span>Built with Next.js. Allma answers for me when I am away.</span>
+          <span>Built with Next.js. My digital self answers when I am away.</span>
         </div>
       </div>
     </footer>

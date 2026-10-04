@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
-import { askAllma } from "../components/site-header";
+import { openDigitalSelf } from "../components/site-header";
 import "./style/link_style.css";
 
 const Arrow = () => (
@@ -19,11 +19,10 @@ const Arrow = () => (
 );
 
 const FACTS = [
-  "PhD in computer science",
+  "PhD in computer science, University of Zurich",
   "10+ years in product",
   "Siemens · Schneider Electric · ASMIQ",
-  "Founder of StrongME",
-  "Co-founder of HoloMost",
+  "Founder of HoloMost and StrongME",
 ];
 
 const GALLERY = [
@@ -71,15 +70,15 @@ export default function Home() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <button onClick={() => askAllma("hero")} className="btn">
-                Ask Allma anything
+              <button onClick={() => openDigitalSelf("hero")} className="btn">
+                Ask my digital self
               </button>
               <Link href="/work" className="btn-ghost">
                 See my work <Arrow />
               </Link>
             </div>
             <p className="mt-4 text-sm" style={{ color: "var(--ink-3)" }}>
-              Allma is the chatbot I built on my own words. She knows almost everything about me.
+              It answers in my voice, from what is on this site. If something is not here, it says so.
             </p>
           </div>
 
@@ -145,7 +144,7 @@ export default function Home() {
                 <h3 className="display-sm mt-3 text-2xl md:text-3xl">HoloMost &amp; HoloPal</h3>
                 <p className="prose-ink mt-4 max-w-xl">
                   <span>
-                    I co-founded HoloMost and built HoloPal, an AI-powered platform that lets
+                    I founded HoloMost and built HoloPal, an AI-powered platform that lets
                     people preserve and share their knowledge as a holographic digital self.
                   </span>
                 </p>
@@ -207,7 +206,7 @@ export default function Home() {
 
           <div className="grid gap-6">
             <article className="card card-hover">
-              <p className="eyebrow">Architected</p>
+              <p className="eyebrow">Architected and delivered</p>
               <h3 className="display-sm mt-3 text-2xl">Isca</h3>
               <p className="prose-ink mt-3">
                 A RAG-based AI chatbot for International School Community, a platform with more
@@ -290,33 +289,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ------------------------------------------------------ Allma */}
+      {/* ----------------------------------------------- Digital self */}
       <section style={{ background: "var(--deep)", color: "var(--deep-ink)" }}>
         <div className="wrap section">
           <div className="grid gap-10 md:grid-cols-[auto_1fr] md:items-center">
             <Image
-              src="/chatbotIcon.png"
+              src="/images/profile/avatar.jpg"
               alt=""
               width={160}
               height={160}
               className="h-28 w-28 rounded-full object-cover md:h-36 md:w-36"
+              style={{ border: "1px solid var(--deep-line)" }}
             />
             <div>
               <h2 className="display-sm text-[clamp(1.9rem,4vw,2.8rem)]">
-                Meet Allma, ask her anything
+Meet my digital self
               </h2>
               <p className="mt-4 max-w-xl text-base md:text-lg" style={{ color: "#cfc6bd" }}>
-                Allma is a chatbot I built on everything on this site. She answers for me when I am
-                away, and she is honest when she does not know.
+                My face, my cloned voice, and everything on this site behind it. Ask it a question
+                and I answer, the same way my friends do on HoloPal. When the answer is not here, it
+                says so instead of making something up.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 {QUESTIONS.map((q) => (
                   <button
                     key={q}
                     onClick={() => {
-                      posthog.capture("allma_suggestion_clicked", { question: q });
+                      posthog.capture("digital_self_suggestion_clicked", { question: q });
                       window.dispatchEvent(
-                        new CustomEvent("open-allma", { detail: { question: q } })
+                        new CustomEvent("open-digital-self", { detail: { question: q } })
                       );
                     }}
                     className="rounded-full px-4 py-2 text-sm transition hover:opacity-80"

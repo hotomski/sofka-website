@@ -13,9 +13,9 @@ const LINKS = [
   { href: "/cv", label: "CV" },
 ];
 
-export function askAllma(source: string) {
-  posthog.capture("allma_cta_clicked", { source });
-  window.dispatchEvent(new CustomEvent("open-allma"));
+export function openDigitalSelf(source: string) {
+  posthog.capture("digital_self_cta_clicked", { source });
+  window.dispatchEvent(new CustomEvent("open-digital-self"));
 }
 
 export default function SiteHeader() {
@@ -83,8 +83,8 @@ export default function SiteHeader() {
           >
             StrongME ↗
           </a>
-          <button onClick={() => askAllma("header")} className="btn !px-5 !py-2 text-sm">
-            Ask Allma
+          <button onClick={() => openDigitalSelf("header")} className="btn !px-5 !py-2 text-sm">
+            Ask me
           </button>
         </nav>
 
@@ -142,11 +142,11 @@ export default function SiteHeader() {
             <button
               onClick={() => {
                 setOpen(false);
-                askAllma("mobile-menu");
+                openDigitalSelf("mobile-menu");
               }}
               className="btn mt-3 w-full"
             >
-              Ask Allma
+              Ask me
             </button>
           </div>
         </div>
