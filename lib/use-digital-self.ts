@@ -202,6 +202,7 @@ export function useDigitalSelf(didImageSrc: string) {
             }),
           });
           if (talk.ok) {
+            const talkBody = await talk.json().catch(() => ({}));
             setAnimationSpent(true);
             try { localStorage.setItem("ds_anim_used", "1"); } catch {}
             posthog.capture("digital_self_animated_answer");
@@ -229,7 +230,12 @@ export function useDigitalSelf(didImageSrc: string) {
             // Whatever the element reports, D-ID is sending the answer now.
             setTimeout(reveal, 2500);
 
-            const ms = Math.max(4000, text.length * 75);
+            // D-ID reports the real length of the audio it is lip-syncing to.
+            // Guessing from character count cut her off mid-sentence on long
+            // answers and held the stream open too long on short ones.
+            const ms = talkBody?.duration
+              ? Math.round(Number(talkBody.duration) * 1000)
+              : Math.max(4000, text.length * 75);
             setTimeout(() => {
               // Fade back to the still first; tearing the stream down in the
               // same tick cuts the picture to black mid-fade.
