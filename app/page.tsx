@@ -65,6 +65,16 @@ export default function Home() {
               >
                 StrongME
               </a>
+              , builder of{" "}
+              <a
+                href="https://holopal.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => posthog.capture("holopal_link_clicked", { source: "hero" })}
+                className="ink-link"
+              >
+                HoloPal
+              </a>
               , and a mum of two, easily the most complex, most rewarding product I have ever
               shipped.
             </p>
