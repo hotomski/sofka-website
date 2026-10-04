@@ -60,19 +60,39 @@ async function cvSection() {
 }
 
 const sections = [];
+const failed = [];
 for (const p of PAGES) {
   try {
     const s = await fetchPage(p);
     sections.push(s);
     console.log(`  ${p.url.padEnd(22)} ${s.text.length} chars`);
   } catch (err) {
-    console.warn(`  ${p.url.padEnd(22)} SKIPPED — ${err.message}`);
+    failed.push(`${p.url} (${err.message})`);
+    console.warn(`  ${p.url.padEnd(22)} FAILED — ${err.message}`);
   }
+}
+
+// A page that fails to load is not an empty page: writing the corpus anyway
+// would quietly delete whole sections of her life from what the digital self
+// knows, and the only symptom would be her saying she has nothing about it.
+if (failed.length) {
+  console.error(`\nRefusing to write the corpus: ${failed.length} page(s) did not load.\n  ${failed.join("\n  ")}\n\nStart the site first (npm run dev -- -p 3077), or point SITE_BASE_URL at the live site.`);
+  process.exit(1);
 }
 const cv = await cvSection();
 if (cv) {
   sections.push(cv);
   console.log(`  ${"/cv (pdf)".padEnd(22)} ${cv.text.length} chars`);
+}
+
+// Losing sections between builds means something broke upstream, not that she
+// deleted half her website.
+if (fs.existsSync("content/site-corpus.json")) {
+  const before = JSON.parse(fs.readFileSync("content/site-corpus.json", "utf8")).sections?.length ?? 0;
+  if (before && sections.length < before) {
+    console.error(`\nRefusing to write the corpus: it would drop from ${before} sections to ${sections.length}.`);
+    process.exit(1);
+  }
 }
 
 const out = {
