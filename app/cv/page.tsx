@@ -37,7 +37,7 @@ export default function CV() {
 
         {/* CV Images, one per page of cv.pdf */}
         <div className="mt-12 flex flex-col gap-8 items-center w-full">
-          {[1, 2, 3, 4].map((page) => (
+          {[1, 2, 3].map((page) => (
             <Image
               key={page}
               src={`/images/cv/page-${page}.jpg`}
