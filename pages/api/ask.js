@@ -7,6 +7,8 @@
 // importantly, it cannot go stale: the corpus is rebuilt from the pages
 // themselves (npm run build-corpus).
 import Anthropic from "@anthropic-ai/sdk";
+import { PostHog } from "posthog-node";
+import { randomUUID } from "crypto";
 import corpus from "../../content/site-corpus.json" with { type: "json" };
 
 export const config = { api: { bodyParser: { sizeLimit: "8kb" } } };
@@ -24,6 +26,14 @@ const SPEECH_WORD_BUDGET = 90;
 export const NO_INFO = "I don't have anything about that on my website.";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+function posthogClient() {
+  const token = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN;
+  if (!token) return null;
+  return new PostHog(token, {
+    host: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://eu.i.posthog.com",
+  });
+}
 
 const CORPUS_TEXT = corpus.sections
   .map((s) => `<page url="${s.url}" title="${s.title}">\n${s.text}\n</page>`)
@@ -76,6 +86,9 @@ export default async function handler(req, res) {
 
   // Earlier turns, so follow-up questions ("and after that?") make sense.
   const history = Array.isArray(req.body?.history) ? req.body.history.slice(-6) : [];
+  // The browser sends its own PostHog id so a question lands on the same
+  // person as the clicks around it, instead of a separate IP-shaped stranger.
+  const distinctId = String(req.body?.distinctId || "").slice(0, 200) || key.split("_")[0];
   const messages = [
     ...history
       .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
@@ -90,6 +103,7 @@ export default async function handler(req, res) {
   });
   const send = (event, data) => res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
 
+  const startedAt = Date.now();
   try {
     const stream = client.beta.messages.stream({
       model: MODEL,
@@ -119,9 +133,49 @@ export default async function handler(req, res) {
     }
     const final = await stream.finalMessage();
     const answer = full.trim();
+    const noInfo = answer.toLowerCase().startsWith(NO_INFO.toLowerCase().slice(0, 30));
+
+    // What was asked and what she said back, on the same event, so the
+    // question and its answer can be read together in PostHog. noInfo is the
+    // interesting one over time: it is the list of things visitors want to
+    // know that the website does not say.
+    try {
+      const ph = posthogClient();
+      if (ph) {
+        ph.capture({
+          distinctId,
+          event: "$ai_generation",
+          properties: {
+            $ai_trace_id: randomUUID(),
+            $ai_provider: "anthropic",
+            $ai_model: MODEL,
+            $ai_input: [{ role: "user", content: question }],
+            $ai_output_choices: [{ role: "assistant", content: answer }],
+            $ai_input_tokens: (final.usage?.input_tokens ?? 0) + (final.usage?.cache_read_input_tokens ?? 0),
+            $ai_output_tokens: final.usage?.output_tokens,
+            $ai_latency: (Date.now() - startedAt) / 1000,
+            $ai_stop_reason: final.stop_reason,
+            question,
+            answer,
+            noInfo,
+            cachedTokens: final.usage?.cache_read_input_tokens ?? 0,
+            followUp: history.length > 0,
+          },
+        });
+        // A question the website could not answer is worth its own event, so
+        // it can be charted without filtering.
+        if (noInfo) {
+          ph.capture({ distinctId, event: "digital_self_no_info", properties: { question } });
+        }
+        await ph.shutdown();
+      }
+    } catch (phErr) {
+      console.error("[/api/ask] posthog:", phErr);
+    }
+
     send("done", {
       answer,
-      noInfo: answer.toLowerCase().startsWith(NO_INFO.toLowerCase().slice(0, 30)),
+      noInfo,
       usage: {
         cached: final.usage?.cache_read_input_tokens ?? 0,
         input: final.usage?.input_tokens ?? 0,

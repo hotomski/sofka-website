@@ -205,7 +205,7 @@ export function useDigitalSelf(didImageSrc: string) {
             const talkBody = await talk.json().catch(() => ({}));
             setAnimationSpent(true);
             try { localStorage.setItem("ds_anim_used", "1"); } catch {}
-            posthog.capture("digital_self_animated_answer");
+            posthog.capture("digital_self_answer_delivered", { mode: "animated", seconds: talkBody?.duration ?? null });
 
             // The face appears and the voice starts in the same moment: both
             // ride the same D-ID stream, so the only job here is to not reveal
@@ -257,8 +257,15 @@ export function useDigitalSelf(didImageSrc: string) {
       el.onended = () => setState("idle");
       setAudioBlocked(false);
       el.play()
-        .then(() => { setAudioBlocked(false); setState("speaking"); })
-        .catch(() => setAudioBlocked(true)); // the UI offers a tap to hear it
+        .then(() => {
+          setAudioBlocked(false);
+          setState("speaking");
+          posthog.capture("digital_self_answer_delivered", { mode: "voice_only" });
+        })
+        .catch(() => {
+          setAudioBlocked(true); // the UI offers a tap to hear it
+          posthog.capture("digital_self_audio_blocked");
+        });
     } else {
       setState("idle");
     }
@@ -283,7 +290,12 @@ export function useDigitalSelf(didImageSrc: string) {
       const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, history: turnsRef.current.slice(-6) }),
+        body: JSON.stringify({
+          question,
+          history: turnsRef.current.slice(-6),
+          // Ties the server's record of the question to this person's clicks.
+          distinctId: (() => { try { return posthog.get_distinct_id(); } catch { return undefined; } })(),
+        }),
       });
       if (!res.ok || !res.body) {
         const body = await res.json().catch(() => ({}));
