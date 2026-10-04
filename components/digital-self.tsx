@@ -268,9 +268,15 @@ export default function DigitalSelf() {
                 </button>
               </div>
 
+              {/* Said once the one animated answer is gone, so the still
+                  photo from here on reads as a limit and not a fault. */}
               {animationSpent && (
-                <p className="mt-5 text-center text-xs" style={{ color: "var(--ink-3)" }}>
-                  Like what you see?{" "}
+                <div
+                  className="mt-5 rounded-2xl px-4 py-3 text-center text-xs leading-relaxed"
+                  style={{ background: "var(--paper-2)", border: "1px solid var(--line)", color: "var(--ink-2)" }}
+                >
+                  That was your one animated answer. From here on it is my voice over a still
+                  photo.{" "}
                   <a
                     href="https://holopal.app"
                     target="_blank"
@@ -278,9 +284,10 @@ export default function DigitalSelf() {
                     onClick={() => posthog.capture("holopal_link_clicked", { source: "digital_self_cta" })}
                     className="ink-link"
                   >
-                    Build YOUR digital self on HoloPal
+                    Talk to me face to face on HoloPal
                   </a>
-                </p>
+                  , where you can also build a digital self of your own.
+                </div>
               )}
             </div>
           </div>
