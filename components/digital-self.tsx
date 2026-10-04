@@ -198,6 +198,36 @@ export default function DigitalSelf() {
             {/* Her answer is spoken. The text underneath is a caption, not a
                 transcript: no history, no scrollback, and it only appears once
                 there is something to caption. */}
+            {/* Directly under her face, where the change is noticed: a still
+                photo after an animated one reads as something broken unless
+                the visitor is told why it changed. */}
+            {animationSpent && (
+              <div className="px-5 pt-5 sm:px-7">
+                <div
+                  className="rounded-2xl px-4 py-3 text-center text-sm leading-relaxed"
+                  style={{
+                    background: "var(--spot-soft)",
+                    border: "1px solid var(--spot)",
+                    color: "var(--ink)",
+                  }}
+                >
+                  That was your one animated answer. From here on it is my voice over a still
+                  photo.{" "}
+                  <a
+                    href="https://holopal.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => posthog.capture("holopal_link_clicked", { source: "digital_self_cta" })}
+                    className="font-semibold underline underline-offset-4"
+                    style={{ color: "var(--spot)" }}
+                  >
+                    Talk to me face to face on HoloPal
+                  </a>
+                  , where you can also build a digital self of your own.
+                </div>
+              </div>
+            )}
+
             {question && (
               <div className="px-5 pt-6 sm:px-7">
                 <p className="text-xs uppercase tracking-[0.14em]" style={{ color: "var(--ink-3)" }}>
@@ -268,27 +298,6 @@ export default function DigitalSelf() {
                 </button>
               </div>
 
-              {/* Said once the one animated answer is gone, so the still
-                  photo from here on reads as a limit and not a fault. */}
-              {animationSpent && (
-                <div
-                  className="mt-5 rounded-2xl px-4 py-3 text-center text-xs leading-relaxed"
-                  style={{ background: "var(--paper-2)", border: "1px solid var(--line)", color: "var(--ink-2)" }}
-                >
-                  That was your one animated answer. From here on it is my voice over a still
-                  photo.{" "}
-                  <a
-                    href="https://holopal.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => posthog.capture("holopal_link_clicked", { source: "digital_self_cta" })}
-                    className="ink-link"
-                  >
-                    Talk to me face to face on HoloPal
-                  </a>
-                  , where you can also build a digital self of your own.
-                </div>
-              )}
             </div>
           </div>
         </div>
